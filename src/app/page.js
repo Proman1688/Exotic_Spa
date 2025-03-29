@@ -4,8 +4,9 @@ import { PromoSecondSection } from "./components/main-page/PromoSecondSection";
 export default function Home() {
   return (
   <>
-  <PromoSection />
-  
+  <div className="flex items-center justify-center">
+    <PromoSection />
+  </div>
   </>
   );
 }

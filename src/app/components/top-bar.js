@@ -7,7 +7,7 @@ export default function TopBar() {
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     </Head>
     
-    <nav className="flex justify-between p-2 px-16 text-xs bg-amber-50 text-black dark:bg-[#2a24242d] dark:text-white max-sm:px-5">
+    <nav className="flex justify-between p-2 px-16 text-xs bg-amber-50 text-black dark:bg-[#2a24242d] dark:text-white max-sm:px-5 select-none">
       <p className="flex items-center max-sm:hidden">Welcome to our online store</p>
 
       <div className="flex items-center space-x-5 max-sm:space-x-2 max-sm:w-full max-sm:justify-between">
@@ -21,10 +21,10 @@ export default function TopBar() {
           <a href="https://github.com/jadodevs">
             <img className="invert dark:invert-0  " src="/github.svg" alt="GitHub" width="30" height="30" />
           </a>
-          <a href="https://instagram.com/mi_usuario">
+          <a href="https://instagram.com/thaiscarla">
             <img className="invert dark:invert-0  " src="/instagram.svg" alt="Instagram" width="30" height="30" />
           </a>
-          <a href="https://linkedin.com/in/mi_usuario">
+          <a href="https://www.linkedin.com/in/santiago-aristizabal-sepulveda-b30981264/">
             <img className="invert dark:invert-0  " src="/linkedin.svg" alt="LinkedIn" width="30" height="30" />
           </a>
         </div>

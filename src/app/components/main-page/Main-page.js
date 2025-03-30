@@ -14,13 +14,11 @@ export default function MainPage() {
         />
       </Head>
 
-      <nav className="flex justify-between items-center p-4 bg-black text-white dark:bg-gray-900 dark:text-white">
-        {/* Logo en el lado izquierdo */}
+      <nav className="flex justify-between items-center p-4 text-white dark:bg-black dark:text-white select-none">
         <div>
           <img src="/logo.png" alt="Logo" className="w-20 h-auto" />
         </div>
 
-        {/* Botón de menú para móviles */}
         <button
           className="md:hidden text-white text-2xl"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -28,14 +26,12 @@ export default function MainPage() {
           ☰
         </button>
 
-        {/* Menú en el centro (oculto en móviles) */}
         <div className="hidden md:flex space-x-6 text-lg">
           <span className="cursor-pointer">Home</span>
           <span className="cursor-pointer">Shop</span>
           <span className="cursor-pointer">About Us</span>
         </div>
 
-        {/* Carrito en el lado derecho */}
         <div className="flex items-center space-x-6">
           <div className="relative">
             <img src="/carrito.png" alt="Carrito" className="w-6 h-6 filter invert dark:invert-0" />

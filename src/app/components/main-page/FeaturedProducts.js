@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
 import { useState } from "react";
+import { Card } from "../card"; 
 
 const products = [
   { id: 1, name: "Message Basket Bag", price: "£75.00", image: "/chaqueta.jpg", isNew: true },
@@ -28,33 +28,16 @@ export function FeaturedProducts() {
       {/* Grid de productos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {products.map((product) => (
-          <div key={product.id} className="relative bg-black p-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
-            {/* Etiqueta "NEW" */}
-            {product.isNew && (
-              <span className="absolute top-2 left-2 bg-red-600 text-xs px-2 py-1 rounded-full">
-                NEW
-              </span>
-            )}
-
-            {/* Botón de favorito */}
-            <button
-              onClick={() => toggleFavorite(product.id)}
-              className="absolute top-2 right-2 text-gray-400 hover:text-red-500 transition-all duration-300"
-            >
-              {favorites[product.id] ? "❤️" : "🤍"}
-            </button>
-
-            {/* Imagen del producto */}
-            <div className="top-8 w-full h-40 relative mb-4">
-              <Image src={product.image} alt={product.name} layout="fill" objectFit="cover" className="rounded-lg" />
-            </div>
-
-            {/* Nombre del producto */}
-            <h3 className="text-lg font-medium mt-10 text-center">{product.name}</h3>
-
-            {/* Precio */}
-            <p className="text-gray-400 text-center">{product.price}</p>
-          </div>
+          <Card
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            price={product.price}
+            cardImage={product.image}
+            isNew={product.isNew}
+            toggleFavorite={toggleFavorite}
+            favorites={favorites}
+          />
         ))}
       </div>
     </section>

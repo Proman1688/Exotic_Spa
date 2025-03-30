@@ -21,10 +21,10 @@ export default function TopBar() {
           <a href="https://github.com/jadodevs">
             <img className="invert dark:invert-0  " src="/github.svg" alt="GitHub" width="30" height="30" />
           </a>
-          <a href="https://instagram.com/thaiscarla">
+          <a href="https://www.instagram.com/danielortiz_04?igsh=ZnpxbzVmaTVhNTQy">
             <img className="invert dark:invert-0  " src="/instagram.svg" alt="Instagram" width="30" height="30" />
           </a>
-          <a href="https://www.linkedin.com/in/santiago-aristizabal-sepulveda-b30981264/">
+          <a href="https://www.linkedin.com/in/santiago-aristizabal-sepulveda-b30981264?trk=mutual-connections_member-name">
             <img className="invert dark:invert-0  " src="/linkedin.svg" alt="LinkedIn" width="30" height="30" />
           </a>
         </div>

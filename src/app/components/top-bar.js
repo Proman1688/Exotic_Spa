@@ -7,7 +7,7 @@ export default function TopBar() {
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     </Head>
     
-    <nav className="flex justify-between p-2 px-16 text-xs bg-amber-50 text-black dark:bg-[#2a24242d] dark:text-white max-sm:px-5 select-none">
+    <nav className="flex justify-between p-2 px-16 text-xs bg-amber-50 text-black dark:bg-black dark:text-white max-sm:px-5 select-none">
       <p className="flex items-center max-sm:hidden">Welcome to our online store</p>
 
       <div className="flex items-center space-x-5 max-sm:space-x-2 max-sm:w-full max-sm:justify-between">

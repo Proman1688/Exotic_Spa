@@ -26,7 +26,7 @@ export default function Menu() {
           <Link href="#" className="cursor-pointer transition-colors duration-300 hover:text-gray-300">
             Inicio
           </Link>
-          <Link href="#" className="cursor-pointer transition-colors duration-300 hover:text-gray-300">
+          <Link href="/shop-page" className="cursor-pointer transition-colors duration-300 hover:text-gray-300">
             Tienda
           </Link>
           <Link href="#" className="cursor-pointer transition-colors duration-300 hover:text-gray-300">
@@ -62,7 +62,7 @@ export default function Menu() {
         <a href="#" className="block text-lg font-medium py-2 px-4 rounded-md hover:bg-gray-800 transition duration-300">
           Inicio
         </a>
-        <a href="#" className="block text-lg font-medium py-2 px-4 rounded-md hover:bg-gray-800 transition duration-300">
+        <a href="/shop-page" className="block text-lg font-medium py-2 px-4 rounded-md hover:bg-gray-800 transition duration-300">
           Tienda
         </a>
         <a href="#" className="block text-lg font-medium py-2 px-4 rounded-md hover:bg-gray-800 transition duration-300">

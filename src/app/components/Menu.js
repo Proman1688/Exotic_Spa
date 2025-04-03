@@ -23,7 +23,7 @@ export default function Menu() {
 
         {/* Menú de navegación en pantallas grandes */}
         <div className="hidden md:flex space-x-6 text-lg absolute left-1/2 transform -translate-x-1/2">
-          <Link href="#" className="cursor-pointer transition-colors duration-300 hover:text-gray-300">
+          <Link href="/" className="cursor-pointer transition-colors duration-300 hover:text-gray-300">
             Inicio
           </Link>
           <Link href="/shop-page" className="cursor-pointer transition-colors duration-300 hover:text-gray-300">

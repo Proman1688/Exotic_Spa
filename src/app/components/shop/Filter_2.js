@@ -2,19 +2,18 @@ export default function Filter_2() {
   return (
     <div>
       {/* Menú lateral (SOLO para pantallas grandes) */}
-      <div className="hidden md:block w-1/4 bg-gray-900 text-white p-4 space-y-2">
-        <h2 className="text-lg font-bold">Categories</h2>
+      <div className="hidden md:block bg-black text-white p-4 space-y-2 text-center">
         <ul className="space-y-1">
-          <li className="cursor-pointer hover:text-gray-400">Jackets & Coats</li>
-          <li className="cursor-pointer hover:text-gray-400">Hoodies & Sweats</li>
-          <li className="cursor-pointer hover:text-gray-400">Shirts</li>
-          <li className="cursor-pointer hover:text-gray-400">T-Shirts & Longsleeve</li>
-          <li className="cursor-pointer hover:text-gray-400">Vests</li>
-          <li className="cursor-pointer hover:text-gray-400">Accessories</li>
-          <li className="cursor-pointer hover:text-gray-400">Jeans</li>
-          <li className="cursor-pointer hover:text-gray-400">Bags</li>
-          <li className="cursor-pointer hover:text-gray-400">Shoes & Sneakers</li>
-          <li className="cursor-pointer hover:text-red-400 font-bold">Big Sales</li>
+          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Jackets & Coats</li>
+          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Hoodies & Sweats</li>
+          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Shirts</li>
+          <li className="cursor-pointer hover:text-black hover:bg-white p-4">T-Shirts & Longsleeve</li>
+          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Vests</li>
+          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Accessories</li>
+          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Jeans</li>
+          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Bags</li>
+          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Shoes & Sneakers</li>
+          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Big Sales</li>
         </ul>
       </div>
 

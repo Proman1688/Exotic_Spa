@@ -29,7 +29,7 @@ export default function Menu() {
           <Link href="/shop-page" className="cursor-pointer transition-colors duration-300 hover:text-gray-300">
             Tienda
           </Link>
-          <Link href="#" className="cursor-pointer transition-colors duration-300 hover:text-gray-300">
+          <Link href="/hi" className="cursor-pointer transition-colors duration-300 hover:text-gray-300">
             Sobre Nosotros
           </Link>
         </div>

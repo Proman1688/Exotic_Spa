@@ -1,8 +1,18 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
+import DetailsCard from "./detailsCard";
 export function Card({id, name, price, cardImage, isNew, toggleFavorite, favorites}) {
-    // const [favorites, setFavorites] = useState({});
+  const [details, setDetails] = useState(false);
+  const closeDetails = () => {
+    setDetails(false);
+  }
+  const openDetails = () => {
+    setDetails(true);
+  }
+
     return(<>
-        <div key={id} className="relative dark:bg-black p-4 rounded-xl shadow-sm shadow-amber-50 hover:shadow-md transition-all duration-300 cursor-pointer">
+        <div key={id} className="relative dark:bg-black p-4 rounded-xl shadow-sm shadow-amber-50 hover:shadow-md transition-all duration-300 cursor-pointer" onClick={() => openDetails()}>
             {/* Etiqueta "NEW" */}
             {isNew && (
               <span className="absolute top-2 left-2 bg-red-600 text-xs px-2 py-1 rounded-full"> NEW </span>
@@ -26,6 +36,7 @@ export function Card({id, name, price, cardImage, isNew, toggleFavorite, favorit
 
             {/* Precio */}
             <p className="text-gray-400 text-center">{price}</p>
+            <DetailsCard id={id} name={name} price={price} cardImage={cardImage} isNew={isNew} toggleFavorite={toggleFavorite} favorites={favorites} details={details} closeDetails={closeDetails}/>
         </div>
     </>)
 }

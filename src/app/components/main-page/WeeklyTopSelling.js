@@ -1,12 +1,12 @@
 "use client";
-import { Card } from "../card";
+import { Card } from "../general/card";
 import { useState } from "react";
 
 const TopSelling = [
-  { id: 1, name: "Message Basket Bag", price: "£75.00", image: "/chaqueta.jpg"},
-  { id: 2, name: "Printed Cotton Bag", price: "£160.00", image: "/chaqueta.jpg"},
-  { id: 3, name: "Pastel Bodycon Bag", price: "£55.00", image: "/chaqueta.jpg"},
-  { id: 4, name: "Victoria Secret Bags", price: "£65.00", image: "/chaqueta.jpg"},
+  { id: 1, name: "Message Basket Bag", price: "£75.00", image: "/chaqueta.jpg", imagepng: "/chaquetaSinFondo.png"},
+  { id: 2, name: "Printed Cotton Bag", price: "£160.00", image: "/chaqueta.jpg", imagepng: "/chaquetaSinFondo.png"},
+  { id: 3, name: "Pastel Bodycon Bag", price: "£55.00", image: "/chaqueta.jpg", imagepng: "/chaquetaSinFondo.png"},
+  { id: 4, name: "Victoria Secret Bags", price: "£65.00", image: "/chaqueta.jpg", imagepng: "/chaquetaSinFondo.png"},
 ];
 
 export function WeeklyTopSelling() {
@@ -33,6 +33,7 @@ export function WeeklyTopSelling() {
             isNew={TopSelling.isNew}
             toggleFavorite={toggleFavorite}
             favorites={favorites}
+            imagepng={TopSelling.imagepng}
           />
         ))}
       </div>

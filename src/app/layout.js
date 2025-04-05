@@ -1,9 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "./components/top-bar"
-import Menu from "./components/Menu";
-import TopBar from "./components/top-bar";
-import Footer from "./components/Footer";
+import "./components/general/top-bar"
+import Menu from "./components/general/Menu";
+import TopBar from "./components/general/top-bar";
+import Footer from "./components/general/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,6 +26,7 @@ export default function RootLayout({ children }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"/>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}

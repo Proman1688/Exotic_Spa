@@ -1,16 +1,16 @@
 "use client";
 import { useState } from "react";
-import { Card } from "../card"; 
+import { Card } from "../general/card"; 
 
 const products = [
-  { id: 1, name: "Message Basket Bag", price: "£75.00", image: "/chaqueta.jpg", isNew: true },
-  { id: 2, name: "Printed Cotton Bag", price: "£160.00", image: "/chaqueta.jpg", isNew: true },
-  { id: 3, name: "Pastel Bodycon Bag", price: "£55.00", image: "/chaqueta.jpg", isNew: true },
-  { id: 4, name: "Victoria Secret Bags", price: "£65.00", image: "/chaqueta.jpg", isNew: false },
-  { id: 5, name: "New Style Bag", price: "£78.00", image: "/chaqueta.jpg", isNew: true },
-  { id: 6, name: "Viccent Bag", price: "£55.00", image: "/chaqueta.jpg", isNew: false },
-  { id: 7, name: "Colorful Summer Bags", price: "£55.00", image: "/chaqueta.jpg", isNew: true },
-  { id: 8, name: "Luxury Bag", price: "£90.00", image: "/chaqueta.jpg", isNew: false },
+  { id: 1, name: "Message Basket Bag", price: "£75.00", image: "/chaqueta.jpg", isNew: true, imagepng: "/chaquetaSinFondo.png" },
+  { id: 2, name: "Printed Cotton Bag", price: "£160.00", image: "/chaqueta.jpg", isNew: true, imagepng: "/chaquetaSinFondo.png" },
+  { id: 3, name: "Pastel Bodycon Bag", price: "£55.00", image: "/chaqueta.jpg", isNew: true, imagepng: "/chaquetaSinFondo.png" },
+  { id: 4, name: "Victoria Secret Bags", price: "£65.00", image: "/chaqueta.jpg", isNew: false, imagepng: "/chaquetaSinFondo.png" },
+  { id: 5, name: "New Style Bag", price: "£78.00", image: "/chaqueta.jpg", isNew: true, imagepng: "/chaquetaSinFondo.png" },
+  { id: 6, name: "Viccent Bag", price: "£55.00", image: "/chaqueta.jpg", isNew: false, imagepng: "/chaquetaSinFondo.png" },
+  { id: 7, name: "Colorful Summer Bags", price: "£55.00", image: "/chaqueta.jpg", isNew: true, imagepng: "/chaquetaSinFondo.png" },
+  { id: 8, name: "Luxury Bag", price: "£90.00", image: "/chaqueta.jpg", isNew: false, imagepng: "/chaquetaSinFondo.png" },
 ];
 
 export function FeaturedProducts() {
@@ -37,6 +37,7 @@ export function FeaturedProducts() {
             isNew={product.isNew}
             toggleFavorite={toggleFavorite}
             favorites={favorites}
+            imagepng={product.imagepng}
           />
         ))}
       </div>

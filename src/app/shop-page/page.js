@@ -1,3 +1,4 @@
+"use client";
 import Filter_1 from "../components/shop/Filter_1";
 import Filter_2 from "../components/shop/Filter_2";
 import Catalog from "../components/shop/Catalog";
@@ -15,7 +16,7 @@ export default function Home() {
         </div>
 
         {/* Catálogo de productos (derecha en pantallas grandes, abajo en móviles) */}
-        <div className=" p-4">
+        <div className="flex items-center justify-center w-full md:w-5/6 px-5">
           <Catalog />
         </div>
       </div>

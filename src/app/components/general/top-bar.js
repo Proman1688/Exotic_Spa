@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 
 export default function TopBar() {
   return ( 
@@ -16,7 +17,12 @@ export default function TopBar() {
           <option className="dark:bg-white dark:text-black">Spanish</option>
           <option className="dark:bg-white dark:text-black">French</option>
         </select>
-        <a className="border-l-2 px-5 max-sm:text-[10px] max-sm:px-1 text-center max-sm:w-36 transition-all duration-300 hover:text-gray-400 hover:underline-offset-4" href="#">Login or Register</a>
+        <Link 
+          href="/sign-up"
+          className="border-l-2 px-5 max-sm:text-[10px] max-sm:px-1 text-center max-sm:w-36 transition-all duration-300 hover:text-gray-400 hover:underline-offset-4"
+        >
+          Login or Register
+        </Link>
         <div className="flex space-x-4">
           <a href="https://github.com/jadodevs" className="transition-transform duration-300 hover:scale-110 hover:opacity-80">
             <img className="invert dark:invert-0  " src="/github.svg" alt="GitHub" width="30" height="30" />

@@ -18,7 +18,9 @@ export default function Menu() {
       <nav className="flex justify-between items-center px-10 py-4 text-white dark:bg-black dark:text-white select-none relative">
         {/* Logo */}
         <div>
-          <img src="/logo.png" alt="Logo" className="w-20 h-auto" />
+          <a href="/" className="flex items-center">
+            <img src="/logo.png" alt="Logo" className="w-20 h-auto cursor-pointer" />
+          </a>
         </div>
 
         {/* Menú de navegación en pantallas grandes */}

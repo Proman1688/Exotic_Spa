@@ -8,18 +8,18 @@ export default function TopBar() {
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     </Head>
     
-    <nav className="flex justify-between p-2 px-16 text-xs bg-amber-50 text-black dark:bg-black dark:text-white max-sm:px-5 select-none">
+    <nav className="flex justify-between p-2 px-16 text-[14px] bg-amber-50 text-black dark:bg-black dark:text-white max-sm:px-5 select-none">
       <p className="flex items-center max-sm:hidden">Welcome to our online store</p>
 
       <div className="flex items-center space-x-5 max-sm:space-x-2 max-sm:w-full max-sm:justify-between">
-        <select className="max-sm:text-[10px]">
+        <select className="max-sm:text-[14px]">
           <option className="dark:bg-white dark:text-black">English</option>
           <option className="dark:bg-white dark:text-black">Spanish</option>
           <option className="dark:bg-white dark:text-black">French</option>
         </select>
         <Link 
           href="/sign-up"
-          className="border-l-2 px-5 max-sm:text-[10px] max-sm:px-1 text-center max-sm:w-36 transition-all duration-300 hover:text-gray-400 hover:underline-offset-4"
+          className="border-l-2 px-5 text-[15px] max-sm:text-[14px] max-sm:px-1 text-center max-sm:w-36 transition-all duration-300 hover:text-gray-400 hover:underline-offset-4"
         >
           Login or Register
         </Link>

@@ -28,7 +28,7 @@ export default function Filter_2() {
         <span className="cursor-pointer hover:text-gray-400 whitespace-nowrap">Jeans</span>
         <span className="cursor-pointer hover:text-gray-400 whitespace-nowrap">Bags</span>
         <span className="cursor-pointer hover:text-gray-400 whitespace-nowrap">Shoes & Sneakers</span>
-        <span className="cursor-pointer hover:text-red-400 whitespace-nowrap">Big Sales</span>
+        <span className="cursor-pointer hover:text-gray-400 whitespace-nowrap">Big Sales</span>
       </div>
     </div>
   );

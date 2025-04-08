@@ -25,15 +25,19 @@ export default function Menu() {
 
         {/* Menú de navegación en pantallas grandes */}
         <div className="hidden md:flex space-x-6 text-lg absolute left-1/2 transform -translate-x-1/2">
-          <Link href="/" className="cursor-pointer transition-colors duration-300 hover:text-gray-300">
-            Inicio
-          </Link>
-          <Link href="/shop-page" className="cursor-pointer transition-colors duration-300 hover:text-gray-300">
-            Tienda
-          </Link>
-          <Link href="/hi" className="cursor-pointer transition-colors duration-300 hover:text-gray-300">
-            Sobre Nosotros
-          </Link>
+          {[
+            { href: "/", label: "Inicio" },
+            { href: "/shop-page", label: "Tienda" },
+            { href: "/#", label: "Sobre Nosotros" }
+          ].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="relative cursor-pointer transition-all duration-500 ease-in-out hover:text-gray-300 hover:scale-105 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-gray-300 after:transition-all after:duration-500 hover:after:w-full"
+            >
+              {item.label}
+            </Link>
+          ))}
         </div>
 
 
@@ -60,18 +64,25 @@ export default function Menu() {
 
       {/* Menú desplegable para dispositivos móviles */}
       {isMenuOpen && (
-        <div className="md:hidden bg-black text-white p-4 space-y-4">
-        <a href="#" className="block text-lg font-medium py-2 px-4 rounded-md hover:bg-gray-800 transition duration-300">
-          Inicio
-        </a>
-        <a href="/shop-page" className="block text-lg font-medium py-2 px-4 rounded-md hover:bg-gray-800 transition duration-300">
-          Tienda
-        </a>
-        <a href="#" className="block text-lg font-medium py-2 px-4 rounded-md hover:bg-gray-800 transition duration-300">
-          Sobre Nosotros
-        </a>
+      <div className="md:hidden bg-black bg-opacity-90 text-white p-4 space-y-4 rounded-lg 
+          transition-all duration-500 ease-out opacity-100 max-h-screen transform scale-y-100 origin-top">
+        
+        {[
+          { name: "Inicio", link: "/" },
+          { name: "Tienda", link: "/shop-page" },
+          { name: "Sobre Nosotros", link: "#" }
+        ].map((item, index) => (
+          <a 
+            key={index} 
+            href={item.link} 
+            className="block text-lg font-medium py-3 px-6 rounded-md text-center 
+            transition-all duration-500 ease-out hover:scale-105 hover:bg-gray-700"
+          >
+            {item.name}
+          </a>
+        ))}
       </div>
-      )}
+    )}
     </>
   );
 }

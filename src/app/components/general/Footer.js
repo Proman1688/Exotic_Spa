@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Sección 1: Logo y Descripción */}
         <div>
-          <img src="/logo.png" alt="Facebook" className="w-30 h-a hover:scale-110 transition" />
+          <img src="/logo-sin-fondo.png" alt="Facebook" className="w-30 h-a hover:scale-110 transition" />
           <p className="text-gray-400 mt-2">Tu mejor opción en moda online.</p>
         </div>
 

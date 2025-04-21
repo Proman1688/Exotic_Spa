@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Menu() {
   // Estado para controlar si el menú está abierto o cerrado en dispositivos móviles
@@ -18,9 +19,9 @@ export default function Menu() {
       <nav className="flex justify-between items-center px-10 py-4 text-white dark:bg-black dark:text-white select-none relative">
         {/* Logo */}
         <div>
-          <a href="/" className="flex items-center">
-            <img src="/logo.png" alt="Logo" className="w-20 h-auto cursor-pointer" />
-          </a>
+          <Link href="/" className="flex items-center">
+            <Image src="/logo.png" alt="Logo" className="w-20 h-auto cursor-pointer" />
+          </Link>
         </div>
 
         {/* Menú de navegación en pantallas grandes */}
@@ -45,7 +46,7 @@ export default function Menu() {
         <div className="flex items-center space-x-8 ml-auto">
           {/* Ícono del carrito de compras con contador */}
           <Link href="#" className="relative group">
-            <img 
+            <Image 
               src="/carrito.png" 
               alt="Carrito" 
               className="w-6 h-6 filter invert dark:invert-0 transition-transform duration-300 group-hover:scale-110"
@@ -72,14 +73,14 @@ export default function Menu() {
           { name: "Tienda", link: "/shop-page" },
           { name: "Sobre Nosotros", link: "#" }
         ].map((item, index) => (
-          <a 
+          <Link 
             key={index} 
             href={item.link} 
             className="block text-lg font-medium py-3 px-6 rounded-md text-center 
             transition-all duration-500 ease-out hover:scale-105 hover:bg-gray-700"
           >
             {item.name}
-          </a>
+          </Link>
         ))}
       </div>
     )}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Sección 1: Logo y Descripción */}
         <div>
-          <img src="/logo-sin-fondo.png" alt="Facebook" className="w-30 h-a hover:scale-110 transition" />
+          <Image src="/logo-sin-fondo.png" alt="Facebook" className="w-30 h-a hover:scale-110 transition" />
           <p className="text-gray-400 mt-2">Tu mejor opción en moda online.</p>
         </div>
 
@@ -24,9 +25,9 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold">Síguenos</h3>
           <div className="flex space-x-4 mt-2">
-            <a href="#"><img src="/github.svg" alt="Facebook" className="w-6 h-6 hover:scale-110 transition" /></a>
-            <a href="#"><img src="/instagram.svg" alt="Instagram" className="w-6 h-6 hover:scale-110 transition" /></a>
-            <a href="#"><img src="/linkedin.svg" alt="Twitter" className="w-6 h-6 hover:scale-110 transition" /></a>
+            <Link href="#"><Image src="/github.svg" alt="Facebook" className="w-6 h-6 hover:scale-110 transition" /></Link>
+            <Link href="#"><Image src="/instagram.svg" alt="Instagram" className="w-6 h-6 hover:scale-110 transition" /></Link>
+            <Link href="#"><Image src="/linkedin.svg" alt="Twitter" className="w-6 h-6 hover:scale-110 transition" /></Link>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
+import Image from "next/image";
 export default function DetailsCard({ id, name, price, cardImage, isNew, toggleFavorite, favorites, details, closeDetails }) {
-    if (!details) return null; // No renderiza si no está activo
+    if (!details) return null; 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black/80 z-10 cursor-default overflow-y-auto touch-none" >
             <div className="bg-[#181818] p-2 pl-2 rounded-lg relative z-20 text-white w-3xl max-md:w-2xl max-h-[150vh] overflow-y-auto flex justify-center items-center max-sm:flex-col max-sm:h-full max-sm:bg-black" onClick={(e) => e.stopPropagation()}>
@@ -7,7 +8,7 @@ export default function DetailsCard({ id, name, price, cardImage, isNew, toggleF
                 
                     <span className="material-symbols-outlined bg-white text-black px-1 py-1 rounded-4xl cursor-pointer w-8 flex items-center justify-center" onClick={(e) => { e.stopPropagation(); closeDetails(); }}>arrow_back</span>
 
-                    <img className="w-[90%] mx-auto max-sm:w-[50%] max-sm:border-2 max-sm:border-amber-50 max-sm:rounded-2xl max-sm:p-3" src={cardImage} alt={name}/>
+                    <Image className="w-[90%] mx-auto max-sm:w-[50%] max-sm:border-2 max-sm:border-amber-50 max-sm:rounded-2xl max-sm:p-3" src={cardImage} alt={name}/>
 
                     <h2 className="text-2xl font-bold mx-auto mt-5">{price}</h2>
 

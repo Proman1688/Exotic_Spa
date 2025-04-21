@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function TopBar() {
   return ( 
@@ -24,15 +25,15 @@ export default function TopBar() {
           Login or Register
         </Link>
         <div className="flex space-x-4">
-          <a href="https://github.com/jadodevs" className="transition-transform duration-300 hover:scale-110 hover:opacity-80">
-            <img className="invert dark:invert-0  " src="/github.svg" alt="GitHub" width="30" height="30" />
-          </a>
-          <a href="https://instagram.com/mi_usuario" className="transition-transform duration-300 hover:scale-110 hover:opacity-80">
-            <img className="invert dark:invert-0  " src="/instagram.svg" alt="Instagram" width="30" height="30" />
-          </a>
-          <a href="https://linkedin.com/in/mi_usuario" className="transition-transform duration-300 hover:scale-110 hover:opacity-80">
-            <img className="invert dark:invert-0  " src="/linkedin.svg" alt="LinkedIn" width="30" height="30" />
-          </a>
+          <Link href="https://github.com/jadodevs" className="transition-transform duration-300 hover:scale-110 hover:opacity-80">
+            <Image className="invert dark:invert-0  " src="/github.svg" alt="GitHub" width="30" height="30" />
+          </Link>
+          <Link href="https://instagram.com/mi_usuario" className="transition-transform duration-300 hover:scale-110 hover:opacity-80">
+            <Image className="invert dark:invert-0  " src="/instagram.svg" alt="Instagram" width="30" height="30" />
+          </Link>
+          <Link href="https://linkedin.com/in/mi_usuario" className="transition-transform duration-300 hover:scale-110 hover:opacity-80">
+            <Image className="invert dark:invert-0  " src="/linkedin.svg" alt="LinkedIn" width="30" height="30" />
+          </Link>
         </div>
       </div>
     </nav>

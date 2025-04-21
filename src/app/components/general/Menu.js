@@ -45,7 +45,7 @@ export default function Menu() {
         {/* Contenedor de carrito y menú hamburguesa */}
         <div className="flex items-center space-x-8 ml-auto">
           {/* Ícono del carrito de compras con contador */}
-          <Link href="#" className="relative group">
+          <Link href="/cart" className="relative group">
             <Image 
               src="/carrito.png" 
               alt="Carrito" 

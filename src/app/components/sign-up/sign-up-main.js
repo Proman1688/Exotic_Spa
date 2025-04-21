@@ -9,7 +9,7 @@ export default function SignUpMain() {
 
       {/* Contenido que NO es afectado por la opacidad */}
       <div className="relative flex w-full p-4">
-        <Image src="/buso.png" alt="Logo" className="flex w-1/2 hidden  md:block " />
+        <Image src="/buso.png" alt="Logo" width={100} height={100} className="flex w-1/2 hidden  md:block " />
         {/* Sección de formulario */}
         <div className="w-full md:w-1/2 p-6 text-white items-center justify-center">
           <h2 className=" text-3xl font-bold text-center">Create an account</h2>
@@ -41,11 +41,11 @@ export default function SignUpMain() {
           {/* Botones de redes sociales */}
           <div className="flex gap-4">
             <button className="flex items-center gap-2 w-1/2 p-2 border rounded-md hover:bg-gray-700 transition">
-              <Image src="/logo_google.png" alt="Google" className="w-8"/>
+              <Image width={100} height={100} src="/logo_google.png" alt="Google" className="w-8"/>
               Google
             </button>
             <button className="flex items-center gap-2 w-1/2 p-2 border rounded-md hover:bg-gray-700 transition">
-              <Image src="/logo_apple.png" alt="Apple" className="w-8"/>
+              <Image width={100} height={100} src="/logo_apple.png" alt="Apple" className="w-8"/>
               Apple
             </button>
           </div>

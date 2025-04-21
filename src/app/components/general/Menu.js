@@ -20,7 +20,7 @@ export default function Menu() {
         {/* Logo */}
         <div>
           <Link href="/" className="flex items-center">
-            <Image src="/logo.png" alt="Logo" className="w-20 h-auto cursor-pointer" />
+            <Image src="/logo.png" width={80} height={0} alt="Logo" className="w-20 h-auto cursor-pointer" />
           </Link>
         </div>
 
@@ -49,6 +49,7 @@ export default function Menu() {
             <Image 
               src="/carrito.png" 
               alt="Carrito" 
+              width={24} height={24}
               className="w-6 h-6 filter invert dark:invert-0 transition-transform duration-300 group-hover:scale-110"
             />
             <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full px-2">

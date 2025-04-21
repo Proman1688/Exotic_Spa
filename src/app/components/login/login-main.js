@@ -33,17 +33,17 @@ export default function LoginMain() {
             {/* Botones de redes sociales */}
             <div className="flex gap-4">
               <button className="flex items-center gap-2 w-1/2 p-2 border rounded-md hover:bg-gray-700 transition">
-                <Image src="/logo_google.png" alt="Google" className="w-8"/>
+                <Image width={100} height={100} src="/logo_google.png" alt="Google" className="w-8"/>
                 Google
               </button>
               <button className="flex items-center gap-2 w-1/2 p-2 border rounded-md hover:bg-gray-700 transition">
-                <Image src="/logo_apple.png" alt="Apple" className="w-8"/>
+                <Image width={100} height={100} src="/logo_apple.png" alt="Apple" className="w-8"/>
                 Apple
               </button>
             </div>
             <p className="text-sm mt-5 text-center">Don&apos;t have an account? <Link href="/sign-up" className="text-blue-400">Login</Link></p>
           </div>
-          <Image src="/buso-2.png" alt="Logo" className="hidden md:block w-1/2 " />
+          <Image width={100} height={100} src="/buso-2.png" alt="Logo" className="hidden md:block w-1/2 " />
         </div>
       </div>
     );

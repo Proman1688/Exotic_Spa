@@ -2,8 +2,8 @@ export default function DetailsCard({ id, name, price, cardImage, isNew, toggleF
     if (!details) return null; // No renderiza si no está activo
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black/80 z-10 cursor-default overflow-y-auto touch-none" >
-            <div className="bg-[#181818] p-2 pl-2 rounded-lg relative z-20 text-white w-3xl max-md:w-2xl max-h-[150vh] overflow-y-auto flex justify-center items-center max-sm:flex-col max-sm:h-full max-sm:bg-black" onClick={(e) => e.stopPropagation()}>
-                <div className="flex flex-col justify-center w-1/3 h-full mr-2 max-sm:h-[70%] max-sm:w-full">
+            <div className="bg-[#181818] p-2 pl-2 rounded-lg relative z-20 text-white w-3xl max-md:w-2xl max-h-[150vh] overflow-y-auto flex justify-center items-center max-sm:flex-col max-sm:h-full max-sm:bg-black border-2" onClick={(e) => e.stopPropagation()}>
+                <div className="flex flex-col justify-center w-1/3 h-full mr-2 max-sm:h-[70%] max-sm:w-full m-5 border-2">
                 
                     <span className="material-symbols-outlined bg-white text-black px-1 py-1 rounded-4xl cursor-pointer w-8 flex items-center justify-center" onClick={(e) => { e.stopPropagation(); closeDetails(); }}>arrow_back</span>
 
@@ -21,7 +21,7 @@ export default function DetailsCard({ id, name, price, cardImage, isNew, toggleF
                     </div>
 
                 </div>
-                <div className="flex flex-col justify-between w-2/3 h-[80%] p-10 border-l-4 border-white/60 max-sm:w-full max-sm:h-[30%] max-sm:p-2 max-sm:border-l-0 max-sm:border-t-4 max-sm:border-t-white/60 max-sm:pb-32">
+                <div className="flex flex-col justify-between w-2/3 h-[80%] p-10 border-l-4 border-white/60 max-sm:w-full max-sm:h-[30%] max-sm:p-2 max-sm:border-l-0 max-sm:border-t-4 max-sm:border-t-white/60 max-sm:pb-32 m-5">
 
                     <h1 className="text-3xl font-bold uppercase max-sm:text-xl">{name}</h1>
                     <ul className="flex gap-2 my-2 text-xs w-full justify-between max-md:mb-2 max-sm:text-[10px] max-sm:gap-0">

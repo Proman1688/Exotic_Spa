@@ -36,7 +36,7 @@ export function Card({id, name, price, cardImage, isNew, toggleFavorite, favorit
 
             {/* Precio */}
             <p className="text-gray-400 text-center">{price}</p>
-            <DetailsCard id={id} name={name} price={price} cardImage={imagepng} isNew={isNew} toggleFavorite={toggleFavorite} favorites={favorites} details={details} closeDetails={closeDetails}/>
+            <DetailsCard id={id} name={name} price={price} cardImages={imagepng} isNew={isNew} toggleFavorite={toggleFavorite} favorites={favorites} details={details} closeDetails={closeDetails}/>
         </div>
     </>)
 }

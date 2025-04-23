@@ -40,9 +40,9 @@ export default function Cart() {
                                         <div className="flex items-center gap-2 max-sm: mr-3">
                                             <span className="text-white">CANTIDAD:</span>
                                             <div className="flex items-center gap-1">
-                                                <span className="material-symbols-outlined bg-white rounded-2xl !text-sm max-lg:!text-xs">add</span>
+                                                <span className="material-symbols-outlined bg-white rounded-2xl !text-sm max-lg:!text-xs cursor-pointer">add</span>
                                                 <span className="text-white px-2">1</span>
-                                                <span className="material-symbols-outlined bg-white rounded-2xl !text-sm max-lg:!text-xs">remove</span>
+                                                <span className="material-symbols-outlined bg-white rounded-2xl !text-sm max-lg:!text-xs cursor-pointer">remove</span>
                                             </div>
                                         </div>
                                         <button className="bg-red-500 text-white px-4 py-2 rounded-lg cursor-pointer max-lg:px-2 max-lg:py-1">Eliminar</button>
@@ -53,9 +53,26 @@ export default function Cart() {
                           
                         ))}
                     </div>
-                    <div className="w-[40%]">
-                        <div className="flex flex-col gap-2">
-                            <div className="w-full bg-[#393535] h-[40vh]">dos</div>
+                    <div className="w-[40%] max-md:w-full">
+                        <div className="flex flex-col gap-2 max-sm:w-full">
+                            <div className="w-full bg-[#393535] h-[40vh] text-white p-5 text-center">
+                                <h1>DELIVERY SUMMARY</h1>
+                                <div className="h-[1px] w-full bg-white mt-2"></div>
+                                <div className="flex justify-between items-center mt-4 text-lg">
+                                    <span>SUBTOTAL</span>
+                                    <span>$3000</span>
+                                </div>
+                                <div className="flex justify-between items-center text-lg">
+                                    <span>ENVIO</span>
+                                    <span>$3000</span>
+                                </div>
+                                <div className="flex justify-between items-center text-lg">
+                                    <span>IVA</span>
+                                    <span>$3000</span>
+                                </div>
+                                <div className="h-[1.5px] w-full bg-white mt-2 mb-4"></div>
+                                <span className="text-white">Total: $3000</span>
+                            </div>
                         </div>
                     </div>
                 </div>

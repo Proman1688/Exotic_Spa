@@ -1,35 +1,51 @@
-export default function Filter_2() {
+"use client";
+import { useState } from "react";
+
+export default function Filter_2({setIsOpenF, isOpenF}) {
+  const categories = [
+    "Jackets & Coats", "Hoodies & Sweats", "Shirts",
+    "T-Shirts & Longsleeve", "Vests", "Accessories",
+    "Jeans", "Bags", "Shoes & Sneakers", "Big Sales"
+  ];
+  
   return (
     <div>
       {/* Menú lateral (SOLO para pantallas grandes) */}
       <div className="hidden md:block bg-black text-white p-4 space-y-2 text-center">
         <ul className="space-y-1">
-          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Jackets & Coats</li>
-          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Hoodies & Sweats</li>
-          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Shirts</li>
-          <li className="cursor-pointer hover:text-black hover:bg-white p-4">T-Shirts & Longsleeve</li>
-          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Vests</li>
-          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Accessories</li>
-          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Jeans</li>
-          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Bags</li>
-          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Shoes & Sneakers</li>
-          <li className="cursor-pointer hover:text-black hover:bg-white p-4">Big Sales</li>
+          {categories.map((category) => (
+            <li
+              key={category}
+              className={`cursor-pointer p-4 hover:text-black hover:bg-white ${
+                isOpenF === category ? "bg-white text-black" : ""
+              }`}
+              onClick={() =>
+                setIsOpenF(isOpenF === category ? "none" : category)
+              }
+            >
+              {category}
+            </li>
+          ))}
         </ul>
       </div>
-
+  
       {/* Menú superior (SOLO para móviles) */}
       <div className="block md:hidden w-full bg-black text-white py-4 px-6 overflow-x-auto space-x-4 text-sm uppercase tracking-wide">
-        <span className="cursor-pointer hover:text-gray-400 whitespace-nowrap">Jackets & Coats</span>
-        <span className="cursor-pointer hover:text-gray-400 whitespace-nowrap">Hoodies & Sweats</span>
-        <span className="cursor-pointer hover:text-gray-400 whitespace-nowrap">Shirts</span>
-        <span className="cursor-pointer hover:text-gray-400 whitespace-nowrap">T-Shirts & Longsleeve</span>
-        <span className="cursor-pointer hover:text-gray-400 whitespace-nowrap">Vests</span>
-        <span className="cursor-pointer hover:text-gray-400 whitespace-nowrap">Accessories</span>
-        <span className="cursor-pointer hover:text-gray-400 whitespace-nowrap">Jeans</span>
-        <span className="cursor-pointer hover:text-gray-400 whitespace-nowrap">Bags</span>
-        <span className="cursor-pointer hover:text-gray-400 whitespace-nowrap">Shoes & Sneakers</span>
-        <span className="cursor-pointer hover:text-gray-400 whitespace-nowrap">Big Sales</span>
+        {categories.map((category) => (
+          <span
+            key={category}
+            className={`cursor-pointer whitespace-nowrap px-2 hover:text-gray-400 ${
+              isOpenF === category ? "text-gray-400 font-semibold underline" : ""
+            }`}
+            onClick={() =>
+              setIsOpenF(isOpenF === category ? "none" : category)
+            }
+          >
+            {category}
+          </span>
+        ))}
       </div>
     </div>
   );
+  
 }

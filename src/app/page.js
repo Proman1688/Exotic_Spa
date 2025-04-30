@@ -6,7 +6,6 @@ import { WeeklyTopSelling } from "./components/main-page/WeeklyTopSelling";
 
 export default function Home() {
   return (
-    
   <>
   <div className="flex items-center justify-center"> <PromoSection /> </div>
   <div className="flex items-center justify-center"> <FeaturedProducts /> </div>

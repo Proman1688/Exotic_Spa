@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Card } from "../general/card"; 
-import { products } from "@/app/products.test";
+import { products } from "@/app/[locale]/products.test";
 
 export default function FeaturedProducts({isOpenF}) {
   const [favorites, setFavorites] = useState({});

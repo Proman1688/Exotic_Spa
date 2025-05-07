@@ -3,8 +3,8 @@ export default function DetailsCard({ id, name, price, cardImages, isNew, toggle
     if (!details) return null; 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black/80 z-10 cursor-default overflow-y-auto touch-none" >
-            <div className="bg-[#181818] p-2 pl-2 rounded-lg relative z-20 text-white w-3xl max-md:w-2xl max-h-[150vh] overflow-y-auto flex justify-center items-center max-sm:flex-col max-sm:h-full max-sm:bg-black border-2" onClick={(e) => e.stopPropagation()}>
-                <div className="flex flex-col justify-center w-1/3 h-full mr-2 max-sm:h-[70%] max-sm:w-full m-5 border-2">
+            <div className="bg-[#181818] p-5 rounded-lg relative z-20 text-white w-5xl max-md:w-4xl max-h-[150vh] overflow-y-auto flex justify-center items-center max-sm:flex-col max-sm:h-full max-sm:bg-black" onClick={(e) => e.stopPropagation()}>
+                <div className="flex flex-col justify-center w-1/3 h-full mr-2 max-sm:h-[70%] max-sm:w-full border-2">
                 
                     <span className="material-symbols-outlined bg-white text-black px-1 py-1 rounded-4xl cursor-pointer w-8 flex items-center justify-center" onClick={(e) => { e.stopPropagation(); closeDetails(); }}>arrow_back</span>
 
@@ -13,18 +13,25 @@ export default function DetailsCard({ id, name, price, cardImages, isNew, toggle
                     <h2 className="text-2xl font-bold mx-auto mt-5">{price}</h2>
 
                     <div className="flex justify-between items-center mt-2 max-sm:fixed max-sm:bottom-0 max-sm:left-0 max-sm:right-0 max-sm:bg-[#181818] max-sm:p-2 max-sm:rounded-t-lg w-full max-sm:h-16 max-sm:gap-2">
-                        <span className="material-symbols-outlined bg-white text-black px-1 py-1 rounded-4xl cursor-pointer w-8 flex items-center justify-center">arrow_back</span>
-                        <div className="flex gap-1 pr-2 items-center rounded-2xl border-2 border-green-500 ">
-                            <span className="material-symbols-outlined bg-white text-black px-1 py-1 rounded-4xl cursor-pointer w-8 flex items-center justify-center">arrow_forward</span>
-                            <p className="text-[10px]">ingresar al carrito</p>
+                        <span className="bg-white text-black rounded-full w-10 h-10 flex items-center justify-center cursor-pointer mr-5">
+                          <span className="material-symbols-outlined text-[24px] leading-none">arrow_back</span>
+                        </span>
+                        <div className="flex gap-1 pr-2 items-center rounded-full border-3 border-green-500 ">
+                            <span className="bg-white text-black rounded-full w-10 h-10 flex items-center justify-center cursor-pointer">
+                                <span className="material-symbols-outlined text-[24px] leading-none">arrow_forward</span>
+                            </span>
+                                <p className="text-[12px] text-bold ">Ingresar al carrito</p>
                         </div>
-                        <span className="material-symbols-outlined bg-white text-black px-1 py-1 rounded-4xl cursor-pointer w-8 flex items-center justify-center">arrow_forward</span>
+                        <span className="bg-white text-black rounded-full w-10 h-10 flex items-center justify-center cursor-pointer ml-5">
+                          <span className="material-symbols-outlined text-[24px] leading-none">arrow_forward</span>
+                        </span>
+
                     </div>
 
                 </div>
-                <div className="flex flex-col justify-between w-2/3 h-[80%] p-10 border-l-4 border-white/60 max-sm:w-full max-sm:h-[30%] max-sm:p-2 max-sm:border-l-0 max-sm:border-t-4 max-sm:border-t-white/60 max-sm:pb-32 m-5">
+                <div className="flex flex-col justify-between w-2/3 h-[90%] p-10 border-l-4 border-white/60 max-sm:w-full max-sm:h-[30%] max-sm:p-2 max-sm:border-l-0 max-sm:border-t-4 max-sm:border-t-white/60 max-sm:pb-32 mx-10">
 
-                    <h1 className="text-3xl font-bold uppercase max-sm:text-xl">{name}</h1>
+                    <h1 className="text-3xl font-bold uppercase max-sm:text-xl mb-5">{name}</h1>
                     <ul className="flex gap-2 my-2 text-xs w-full justify-between max-md:mb-2 max-sm:text-[10px] max-sm:gap-0">
                         <li className="cursor-pointer">DETAILS</li>
                         <li className="cursor-pointer">MATERIALS</li>

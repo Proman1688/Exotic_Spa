@@ -1,8 +1,11 @@
+"use client";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "use-intl";
 
 export default function TopBar() {
+  const t = useTranslations("HomePage");
   return ( 
   <>
     <Head>
@@ -10,7 +13,7 @@ export default function TopBar() {
     </Head>
     
     <nav className="flex justify-between p-2 px-16 text-[14px] bg-amber-50 text-black dark:bg-black dark:text-white max-sm:px-5 select-none">
-      <p className="flex items-center max-sm:hidden">Welcome to our online store</p>
+      <p className="flex items-center max-sm:hidden">{t('title')}</p>
 
       <div className="flex items-center space-x-5 max-sm:space-x-2 max-sm:w-full max-sm:justify-between">
         <select className="max-sm:text-[14px]">

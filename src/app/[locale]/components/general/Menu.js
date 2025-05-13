@@ -3,10 +3,13 @@ import { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "use-intl";
 
 export default function Menu() {
   // Estado para controlar si el menú está abierto o cerrado en dispositivos móviles
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const t = useTranslations("menu");
+
 
   return (
     <>
@@ -27,9 +30,9 @@ export default function Menu() {
         {/* Menú de navegación en pantallas grandes */}
         <div className="hidden md:flex space-x-6 text-lg absolute left-1/2 transform -translate-x-1/2">
           {[
-            { href: "/", label: "Inicio" },
-            { href: "/shop-page", label: "Tienda" },
-            { href: "/#", label: "Sobre Nosotros" }
+            { href: "/", label: t('home') },
+            { href: "/shop-page", label: t('shop') },
+            { href: "/#", label: t('about') },
           ].map((item) => (
             <Link
               key={item.href}
@@ -70,9 +73,9 @@ export default function Menu() {
           transition-all duration-500 ease-out opacity-100 max-h-screen transform scale-y-100 origin-top">
         
         {[
-          { name: "Inicio", link: "/" },
-          { name: "Tienda", link: "/shop-page" },
-          { name: "Sobre Nosotros", link: "#" }
+          { name: t("home"), link: "/" },
+          { name: t("shop"), link: "/shop-page" },
+          { name: t("about"), link: "#" }
         ].map((item, index) => (
           <Link 
             key={index} 

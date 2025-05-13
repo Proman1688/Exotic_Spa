@@ -1,6 +1,80 @@
 {
-    "HomePage": {
-      "title": "hola",
-      "about": "Go to the about page"
-    }
+  "topBar": {
+      "welcome":"Bienvenido a nuestra tienda en línea!!",
+      "English":"Ingles",
+      "Spanish":"Español",
+      "French":"Frances",
+      "Signup": "Iniciar sesión o registrarse"
+  },
+  "menu": {
+      "home":"Inicio",
+      "shop":"Tienda",
+      "about":"Sobre nosotros"
+  },
+  "featuredProducts": {
+      "featured":"Productos destacados"
+  },
+  "weeklyTopSelling": {
+    "weekly":"Los más vendidos de la semana"
+  },
+  "footer": {
+    "option": "Tu mejor opción en compras en línea",
+    "link": "Enlaces",
+    "home": "Inicio",
+    "shop": "Tienda",
+    "about": "Sobre nosotros",
+    "followUs": "Síguenos",
+    "rights": "Todos los derechos reservados"
+  },
+  "signup": {
+    "create":"Crear una cuenta",
+    "already":"¿Ya tienes una cuenta?",
+    "login":"Iniciar sesión",
+    "firstName":"Nombre",
+    "lastName":"Apellido",
+    "email":"Correo electrónico",
+    "password":"Ingresa tu contraseña",
+    "agree": "Estoy de acuerdo con los ",
+    "terms": "Términos y condiciones",
+    "or":"o registrarse con"
+  },
+  "login": {
+    "login":"Iniciar sesión",
+    "email":"Correo electrónico",
+    "password":"Ingresa tu contraseña",
+    "forgot":"¿Olvidaste tu contraseña?",
+    "or":"o iniciar sesión con",
+    "dontHave":"¿No tienes una cuenta?"
+  },
+  "catalog": {
+    "showMore":"Mostrar más"
+  },
+  "filter1": {
+    "size":"Tamaño",
+    "color":"Color",
+    "material":"Material",
+    "type":"Tipo",
+    "brand":"Marca",
+    "price":"Precio"
+  },
+  "filter2":{
+    "jackets":"Chaquetas",
+    "hoodies": "Sudaderas",
+    "shirts": "Camisas",
+    "tshirts": "Camisetas",
+    "vests": "Chalecos",
+    "accessories": "Accesorios",
+    "jeans": "Jeans",
+    "bags": "Bolsos",
+    "shoes": "Zapatos",
+    "bigsales": "Grandes descuentos"
+  },
+  "cart":{
+    "cart":"CARRITO",
+    "delivery":"RESUMEN DE ENTREGA",
+    "subtotal":"SUBTOTAL",
+    "shipping":"ENVIO",
+    "iva":"IVA",
+    "total":"TOTAL"
   }
+}

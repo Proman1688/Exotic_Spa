@@ -1,11 +1,13 @@
 "use client";
 import { useState } from "react";
+import { useTranslations } from "use-intl";
 
 export default function Filter_2({setIsOpenF, isOpenF}) {
+  const t = useTranslations("filter2");
   const categories = [
-    "Jackets & Coats", "Hoodies & Sweats", "Shirts",
-    "T-Shirts & Longsleeve", "Vests", "Accessories",
-    "Jeans", "Bags", "Shoes & Sneakers", "Big Sales"
+    t('jackets'), t('hoodies'), t('shirts'),
+    t('tshirts'), t('vests'), t('accessories'),
+    t('jeans'), t('bags'), t('shoes'), t('bigsales')
   ];
   
   return (

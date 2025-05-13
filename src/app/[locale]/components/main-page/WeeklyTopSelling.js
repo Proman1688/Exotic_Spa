@@ -1,6 +1,7 @@
 "use client";
 import { Card } from "../general/card";
 import { useState } from "react";
+import { useTranslations } from "use-intl";
 
 const TopSelling = [
   { id: 1, name: "Message Basket Bag", price: "£75.00", image: "/chaqueta.jpg", imagepng: "/chaquetaSinFondo.png"},
@@ -11,6 +12,7 @@ const TopSelling = [
 
 export function WeeklyTopSelling() {
   const [favorites, setFavorites] = useState({});
+  const t = useTranslations("weeklyTopSelling");
 
   const toggleFavorite = (id) => {
     setFavorites((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -19,7 +21,7 @@ export function WeeklyTopSelling() {
   return (
     <section className="py-10 text-white">
       {/* Título */}
-      <h2 className="text-center text-2xl font-semibold mb-6">#Weekly Top Selling</h2>
+      <h2 className="text-center text-2xl font-semibold mb-6">#{t("weekly")}</h2>
 
       {/* Grid de productos */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

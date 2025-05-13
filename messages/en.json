@@ -1,6 +1,80 @@
 {
-    "HomePage": {
-      "title": "Hello world!",
-      "about": "Go to the about page"
-    }
+  "topBar":{
+      "welcome":"Welcome to out online store!!",
+      "English":"English",
+      "Spanish":"Spanish",
+      "French":"French",
+      "Signup": "Login or Register"
+  },
+  "menu":{
+      "home":"Home",
+      "shop":"Shop",
+      "about":"About us"
+  },
+  "featuredProducts":{
+      "featured":"Featured Products"
+  },
+  "weeklyTopSelling":{
+    "weekly":"Weekly Top Selling"
+  },
+  "footer":{
+    "option": "Your best option in online shopping",
+    "link": "Links",
+    "home": "Home",
+    "shop": "Shop",
+    "about": "About us",
+    "followUs": "Follow us",
+    "rights": "All rights reserved"
+  },
+  "signup": {
+    "create":"Create an account",
+    "already":"Already have an account?",
+    "login":"Log in",
+    "firstName":"First Name",
+    "lastName":"Last Name",
+    "email":"Email",
+    "password":"Enter your password",
+    "agree": "I agree to the ",
+    "terms": "Terms & Conditions",
+    "or":"or register with"
+  },
+  "login": {
+    "login":"Login",
+    "email":"Email",
+    "password":"Enter your password",
+    "forgot":"Forgot your password?",
+    "or":"or login with",
+    "dontHave":"Don't have an account?"
+  },
+  "catalog":{
+    "showMore":"Show more"
+  },
+  "filter1":{
+    "size":"Size",
+    "color":"Color",
+    "material":"Material",
+    "type":"Type",
+    "brand":"Brand",
+    "price":"Price"
+  },
+  "filter2":{
+    "jackets":"Jackets & Coats",
+    "hoodies": "Hoodies & Sweats",
+    "shirts": "Shirts",
+    "tshirts": "T-Shirts & Longsleeve",
+    "vests": "Vests",
+    "accessories": "Accessories",
+    "jeans": "Jeans",
+    "bags": "Bags",
+    "shoes": "Shoes & Sneakers",
+    "bigsales": "Big Sales"
+  },
+  "cart":{
+    "cart":"CART",
+    "delivery":"DELIVERY SUMMARY",
+    "subtotal":"SUBTOTAL",
+    "shipping":"SHIPPING",
+    "iva":"IVA",
+    "total":"TOTAL"
   }
+}

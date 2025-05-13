@@ -1,6 +1,9 @@
+"use client";
 import Head from "next/head";
 import Image from "next/image";
+import { useTranslations } from "use-intl";
 export default function Cart() {
+    const t = useTranslations("cart");
     return (
         <>
         <Head>
@@ -15,7 +18,7 @@ export default function Cart() {
 
             {/* Contenido que no se ve afectado por la opacidad */}
             <div className="relative flex flex-col items-center justify-center text-white">
-                <h1 className="text-4xl font-bold">CART</h1>
+                <h1 className="text-4xl font-bold">{t('cart')}</h1>
                 <div className="text-2xl mt-4 w-[70vw] bg-[#f5f5f5]/70 text-black p-5 rounded-lg shadow-lg flex gap-4 max-lg:text-base max-lg:w-[90vw] max-lg:p-2 max-md:flex-col max-md:gap-2 max-md:w-[70vw]"> 
                     <div className="w-[60%] max-md:w-full">
                         {[1, 2, 3, 4, 5, 6].map((item) => (
@@ -56,22 +59,22 @@ export default function Cart() {
                     <div className="w-[40%] max-md:w-full">
                         <div className="flex flex-col gap-2 max-sm:w-full">
                             <div className="w-full bg-[#393535] h-[40vh] text-white p-5 text-center">
-                                <h1>DELIVERY SUMMARY</h1>
+                                <h1>{t('delivery')}</h1>
                                 <div className="h-[1px] w-full bg-white mt-2"></div>
                                 <div className="flex justify-between items-center mt-4 text-lg">
-                                    <span>SUBTOTAL</span>
+                                    <span>{t('subtotal')}</span>
                                     <span>$3000</span>
                                 </div>
                                 <div className="flex justify-between items-center text-lg">
-                                    <span>ENVIO</span>
+                                    <span>{t('shipping')}</span>
                                     <span>$3000</span>
                                 </div>
                                 <div className="flex justify-between items-center text-lg">
-                                    <span>IVA</span>
+                                    <span>{t('iva')}</span>
                                     <span>$3000</span>
                                 </div>
                                 <div className="h-[1.5px] w-full bg-white mt-2 mb-4"></div>
-                                <span className="text-white">Total: $3000</span>
+                                <span className="text-white">{t('total')}: $3000</span>
                             </div>
                         </div>
                     </div>

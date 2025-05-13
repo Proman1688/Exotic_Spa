@@ -1,6 +1,80 @@
 {
-    "HomePage": {
-      "title": "bonjour",
-      "about": "Go to the about page"
-    }
+  "topBar": {
+    "welcome":"Bienvenue dans notre boutique en ligne !!",
+    "English":"Anglais",
+    "Spanish":"Espagnol",
+    "French":"Français",
+    "Signup": "Se connecter ou s'inscrire"
+  },
+  "menu": {
+    "home":"Accueil",
+    "shop":"Magasin",
+    "about":"À propos"
+  },
+  "featuredProducts": {
+    "featured":"Produits en vedette"
+  },
+  "weeklyTopSelling": {
+    "weekly":"Meilleures ventes de la semaine"
+  },
+  "footer": {
+    "option": "Votre meilleure option pour les achats en ligne",
+    "link": "Liens",
+    "home": "Accueil",
+    "shop": "Magasin",
+    "about": "À propos",
+    "followUs": "Suivez-nous",
+    "rights": "Tous les droits sont réservés"
+  },
+  "signup": {
+    "create":"Créer un compte",
+    "already":"Vous avez déjà un compte ?",
+    "login":"Se connecter",
+    "firstName":"Prénom",
+    "lastName":"Nom de famille",
+    "email":"Email",
+    "password":"Entrez votre mot de passe",
+    "agree": "J'accepte les ",
+    "terms": "Conditions générales",
+    "or":"ou inscrivez-vous avec"
+  },
+  "login": {
+    "login":"Connexion",
+    "email":"Email",
+    "password":"Entrez votre mot de passe",
+    "forgot":"Mot de passe oublié ?",
+    "or":"ou connectez-vous avec",
+    "dontHave":"Vous n'avez pas de compte ?"
+  },
+  "catalog": {
+    "showMore":"Afficher plus"
+  },
+  "filter1": {
+    "size":"Taille",
+    "color":"Couleur",
+    "material":"Matériau",
+    "type":"Type",
+    "brand":"Marque",
+    "price":"Prix"
+  },
+  "filter2":{
+    "jackets":"Vestes & Manteaux",
+    "hoodies": "Sweatshirts & Sweats",
+    "shirts": "Chemises",
+    "tshirts": "T-shirts & Manches longues",
+    "vests": "Gilets",
+    "accessories": "Accessoires",
+    "jeans": "Jeans",
+    "bags": "Sacs",
+    "shoes": "Chaussures & Baskets",
+    "bigsales": "Grosses soldes"
+  },
+  "cart":{
+    "cart":"PANIER",
+    "delivery":"RÉSUMÉ DE LIVRAISON",
+    "subtotal":"SOUS-TOTAL",
+    "shipping":"LIVRAISON",
+    "iva":"TVA",
+    "total":"TOTAL"
   }
+}

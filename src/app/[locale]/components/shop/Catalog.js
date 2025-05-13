@@ -2,11 +2,13 @@
 import { useState } from "react";
 import { Card } from "../general/card"; 
 import { products } from "@/app/[locale]/products.test";
+import { useTranslations } from "use-intl";
 
 export default function FeaturedProducts({isOpenF}) {
   const [favorites, setFavorites] = useState({});
   const [showMore, setShowMore] = useState(1);
   const productsToShow = 8 * showMore; 
+  const t = useTranslations("catalog");
 
   const toggleFavorite = (id) => {
     setFavorites((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -36,7 +38,7 @@ export default function FeaturedProducts({isOpenF}) {
 
             {productsToShow < products.filter((product) => isOpenF === "none" || product.type === isOpenF).length ? (
               <button className="block mx-auto m-10 px-4 py-2 bg-zinc-800 text-white rounded-lg hover:bg-zinc-700 transition-all" onClick={() => setShowMore((prev) => prev + 1)}>
-              Show More
+              {t("showMore")}
               </button>)
             : null}
 

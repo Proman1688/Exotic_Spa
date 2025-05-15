@@ -48,7 +48,8 @@
     "create":"Créer un compte"
   },
   "catalog": {
-    "showMore":"Afficher plus"
+    "showMore":"Afficher plus",
+    "showLess":"Afficher moins"
   },
   "filter1": {
     "size":"Taille",

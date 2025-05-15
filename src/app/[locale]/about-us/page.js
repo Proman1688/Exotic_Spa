@@ -33,11 +33,11 @@ export default function AboutUs() {
           className="object-cover opacity-70"
         />
         <div className="absolute inset-0 flex flex-col md:flex-row text-white bg-black/40 px-4">
-          <div className="w-full md:w-1/2 hidden md:flex items-center justify-center" />
           <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center">
             <h1 className="text-2xl md:text-4xl font-bold">{t("mission")}</h1>
             <p className="mt-6 text-sm md:text-lg max-w-xl md:mx-20">{t("mission-description")}</p>
           </div>
+          <div className="w-full md:w-1/2 hidden md:flex items-center justify-center" />
         </div>
       </div>
 

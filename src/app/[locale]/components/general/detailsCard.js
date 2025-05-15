@@ -4,7 +4,7 @@ export default function DetailsCard({ id, name, price, cardImages, isNew, toggle
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black/80 z-10 cursor-default overflow-y-auto touch-none" >
             <div className="bg-[#181818] p-5 rounded-lg relative z-20 text-white w-5xl max-md:w-4xl max-h-[150vh] overflow-y-auto flex justify-center items-center max-sm:flex-col max-sm:h-full max-sm:bg-black" onClick={(e) => e.stopPropagation()}>
-                <div className="flex flex-col justify-center w-1/3 h-full mr-2 max-sm:h-[70%] max-sm:w-full border-2">
+                <div className="flex flex-col justify-center w-1/3 h-full mr-2 max-sm:h-[70%] max-sm:w-full">
                 
                     <span className="material-symbols-outlined bg-white text-black px-1 py-1 rounded-4xl cursor-pointer w-8 flex items-center justify-center" onClick={(e) => { e.stopPropagation(); closeDetails(); }}>arrow_back</span>
 

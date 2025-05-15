@@ -80,5 +80,10 @@
   },
   "about-us":{
     "about":"About us",
-    "description":"We are a company dedicated to the sale of clothing and accessories. We offer a wide variety of products to meet the needs of our customers. Our goal is to provide high quality products at competitive prices. We are committed to customer satisfaction and strive to provide an excellent shopping experience."}
+    "description":"We are a company dedicated to the sale of clothing and accessories. We offer a wide variety of products to meet the needs of our customers. Our goal is to provide high quality products at competitive prices. We are committed to customer satisfaction and strive to provide an excellent shopping experience.",
+    "mission":"Mission",
+    "mission-description":"Our mission is to provide our customers with high quality products at competitive prices. We are committed to customer satisfaction and strive to provide an excellent shopping experience.",
+    "vision":"Vision",
+    "vision-description":"Our vision is to be a leading company in the online clothing and accessories market. We aim to expand our product range and reach more customers around the world."
+  }
 }

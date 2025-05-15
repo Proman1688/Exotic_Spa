@@ -44,7 +44,8 @@
     "password":"Ingresa tu contraseña",
     "forgot":"¿Olvidaste tu contraseña?",
     "or":"o iniciar sesión con",
-    "dontHave":"¿No tienes una cuenta?"
+    "dontHave":"¿No tienes una cuenta?",
+    "create":"Crear una cuenta"
   },
   "catalog": {
     "showMore":"Mostrar más"
@@ -76,5 +77,9 @@
     "shipping":"ENVIO",
     "iva":"IVA",
     "total":"TOTAL"
+  },
+  "about-us":{
+    "about":"Sobre nosotros",
+    "description":"En nuestra tienda en línea, nos dedicamos a facilitar la compra de ropa de manera rápida, sencilla y segura. Ofrecemos prendas de alta calidad que combinan estilo, originalidad y comodidad, para que cada persona pueda expresar su personalidad a través de su forma de vestir. Creemos que la moda debe ser accesible, auténtica y única, por eso seleccionamos cuidadosamente cada pieza pensando en quienes buscan algo más que solo vestirse: quieren destacar."
   }
 }

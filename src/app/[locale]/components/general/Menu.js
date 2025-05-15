@@ -32,7 +32,7 @@ export default function Menu() {
           {[
             { href: "/", label: t('home') },
             { href: "/shop-page", label: t('shop') },
-            { href: "/#", label: t('about') },
+            { href: "/about-us", label: t('about') },
           ].map((item) => (
             <Link
               key={item.href}
@@ -75,7 +75,7 @@ export default function Menu() {
         {[
           { name: t("home"), link: "/" },
           { name: t("shop"), link: "/shop-page" },
-          { name: t("about"), link: "#" }
+          { name: t("about"), link: "about-us" }
         ].map((item, index) => (
           <Link 
             key={index} 

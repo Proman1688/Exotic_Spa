@@ -44,7 +44,7 @@ export default function LoginMain() {
                 Apple
               </button>
             </div>
-            <p className="text-sm mt-5 text-center">{t('dontHave')}<Link href="/sign-up" className="text-blue-400">{t('login')}</Link></p>
+            <p className="text-sm mt-5 text-center">{t('dontHave')} <Link href="/sign-up" className="text-blue-400">{t('create')}</Link></p>
           </div>
           <Image width={100} height={100} src="/buso-2.png" alt="Logo" className="hidden md:block w-1/2 " />
         </div>

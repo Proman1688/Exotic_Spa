@@ -44,10 +44,12 @@
     "password":"Entrez votre mot de passe",
     "forgot":"Mot de passe oublié ?",
     "or":"ou connectez-vous avec",
-    "dontHave":"Vous n'avez pas de compte ?"
+    "dontHave":"Vous n'avez pas de compte ?",
+    "create":"Créer un compte"
   },
   "catalog": {
-    "showMore":"Afficher plus"
+    "showMore":"Afficher plus",
+    "showLess":"Afficher moins"
   },
   "filter1": {
     "size":"Taille",
@@ -76,5 +78,13 @@
     "shipping":"LIVRAISON",
     "iva":"TVA",
     "total":"TOTAL"
+  },
+  "about-us":{
+    "about":"À propos de nous",
+    "description":"Nous sommes une entreprise de mode en ligne dédiée à offrir les dernières tendances et styles à nos clients. Notre mission est de fournir des vêtements de haute qualité et abordables qui répondent aux besoins de chacun. Nous croyons que la mode doit être accessible à tous, c'est pourquoi nous proposons une large gamme de produits pour tous les goûts et budgets. Notre équipe travaille sans relâche pour s'assurer que chaque article que nous proposons est soigneusement sélectionné et testé pour garantir la satisfaction de nos clients. Merci de choisir notre boutique en ligne pour vos besoins en mode !",
+    "mission":"Notre mission",
+    "mission-description":"Notre mission est de fournir des vêtements de haute qualité et abordables qui répondent aux besoins de chacun. Nous croyons que la mode doit être accessible à tous, c'est pourquoi nous proposons une large gamme de produits pour tous les goûts et budgets.",
+    "vision":"Notre vision",
+    "vision-description":"Notre vision est de devenir la destination de choix pour les acheteurs en ligne à la recherche des dernières tendances et styles. Nous nous efforçons d'offrir une expérience d'achat exceptionnelle à nos clients, avec un service client exceptionnel et une sélection de produits de premier ordre."
   }
 }

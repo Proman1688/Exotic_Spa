@@ -44,10 +44,12 @@
     "password":"Ingresa tu contraseña",
     "forgot":"¿Olvidaste tu contraseña?",
     "or":"o iniciar sesión con",
-    "dontHave":"¿No tienes una cuenta?"
+    "dontHave":"¿No tienes una cuenta?",
+    "create":"Crear una cuenta"
   },
   "catalog": {
-    "showMore":"Mostrar más"
+    "showMore":"Mostrar más",
+    "showLess":"Mostrar menos"
   },
   "filter1": {
     "size":"Tamaño",
@@ -76,5 +78,13 @@
     "shipping":"ENVIO",
     "iva":"IVA",
     "total":"TOTAL"
+  },
+  "about-us":{
+    "about":"Sobre nosotros",
+    "description":"En nuestra tienda en línea, nos dedicamos a facilitar la compra de ropa de manera rápida, sencilla y segura. Ofrecemos prendas de alta calidad que combinan estilo, originalidad y comodidad, para que cada persona pueda expresar su personalidad a través de su forma de vestir. Creemos que la moda debe ser accesible, auténtica y única, por eso seleccionamos cuidadosamente cada pieza pensando en quienes buscan algo más que solo vestirse: quieren destacar.",
+    "mission":"Misión",
+    "mission-description":"Nuestra misión es transformar la forma en que las personas compran ropa, ofreciendo una plataforma digital accesible, intuitiva y confiable, donde cada cliente pueda encontrar prendas de alta calidad con un estilo único que refleje su personalidad. Nos enfocamos en brindar una experiencia de compra cómoda y segura, con atención personalizada y un catálogo cuidadosamente seleccionado que se adapta a las tendencias actuales sin perder autenticidad. Nos comprometemos a facilitar la expresión individual a través de la moda, valorando la originalidad, el detalle y la satisfacción del cliente en cada paso del proceso.",
+    "vision":"Visión",
+    "vision-description":"Nuestra visión es convertirnos en una marca referente en el comercio electrónico de moda, reconocida por su compromiso con la calidad, la innovación y el estilo. Aspiramos a ser la primera opción para quienes buscan más que solo ropa: buscan identidad, confianza y distinción. Imaginamos un futuro donde cada persona pueda vestirse con libertad y seguridad, encontrando en nuestra tienda una comunidad que valora la creatividad, la autenticidad y el diseño consciente. Queremos crecer junto a nuestros clientes, ampliando constantemente nuestras propuestas y manteniendo siempre la esencia de lo que nos hace únicos."
   }
 }

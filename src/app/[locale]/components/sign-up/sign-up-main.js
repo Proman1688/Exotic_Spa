@@ -16,7 +16,7 @@ export default function SignUpMain() {
         {/* Sección de formulario */}
         <div className="w-full md:w-1/2 p-6 text-white items-center justify-center">
           <h2 className=" text-3xl font-bold text-center">{t('create')}</h2>
-          <p className="text-sm mt-1 text-center">{t('already')}<Link href="/login" className="text-blue-400">{t('login')}</Link></p>
+          <p className="text-sm mt-1 text-center">{t('already')} <Link href="/login" className="text-blue-400">{t('login')}</Link></p>
 
           <div className="mt-8 space-y-3">
             <div className="flex gap-3">

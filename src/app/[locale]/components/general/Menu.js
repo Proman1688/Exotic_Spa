@@ -35,7 +35,7 @@ export default function Menu() {
               width={80}
               height={0}
               alt="Logo"
-              className="w-20 h-auto cursor-pointer"
+              className="w-30 h-auto cursor-pointer"
             />
           </Link>
         </div>

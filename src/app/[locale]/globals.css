@@ -21,8 +21,18 @@
 }
 
 body {
-  background: var(--background);
+  background-image: url('/Imagen_Home.jpg');
+  background-size: cover;
+  background-repeat: repeat-y;
+  background-position: center;
+  background-attachment: fixed;
+
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
-  @apply bg-black;
 }
+
+

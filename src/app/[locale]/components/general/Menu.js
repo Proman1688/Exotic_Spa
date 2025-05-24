@@ -27,15 +27,15 @@ export default function Menu() {
         />
       </Head>
 
-      <nav className="flex justify-between items-center px-10 py-4 text-white dark:bg-black dark:text-white select-none relative">
-        <div>
+      <nav className="flex px-10 py-4 text-white bg-opacity-0 select-none relative z-10">
+        <div className="flex items-center space-x-5">
           <Link href="/" className="flex items-center">
             <Image
               src="/logo.png"
               width={80}
               height={0}
               alt="Logo"
-              className="w-30 h-auto cursor-pointer"
+              className="w-30 h-auto cursor-pointer hover:scale-105 transition-transform duration-300 hover:invert"
             />
           </Link>
         </div>
@@ -49,7 +49,7 @@ export default function Menu() {
             <Link
               key={item.href}
               href={item.href}
-              className="relative cursor-pointer transition-all duration-500 ease-in-out hover:text-gray-300 hover:scale-105 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-gray-300 after:transition-all after:duration-500 hover:after:w-full"
+              className="relative cursor-pointer transition-all duration-500 ease-in-out hover:text-black hover:scale-105 after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-black after:transition-all after:duration-500 hover:after:w-full"
             >
               {item.label}
             </Link>
@@ -57,19 +57,6 @@ export default function Menu() {
         </div>
 
         <div className="flex items-center space-x-8 ml-auto">
-          <Link href="/cart" className="relative group">
-            <Image
-              src="/carrito.png"
-              alt="Carrito"
-              width={24}
-              height={24}
-              className="w-6 h-6 filter invert dark:invert-0 transition-transform duration-300 group-hover:scale-110"
-            />
-            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs rounded-full px-2">
-              3
-            </span>
-          </Link>
-
           <button
             className="md:hidden text-white text-2xl"
             onClick={() => setIsMenuOpen(!isMenuOpen)}

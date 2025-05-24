@@ -8,10 +8,8 @@ import { useTranslations } from "next-intl";
 
 export default function Home() {
   return (
-  <>
-  <div className="flex items-center justify-center"> <FeaturedProducts /> </div>
-  <div className="flex items-center justify-center"> <PromoSecondSection /> </div>
-  <div className="flex items-center justify-center"> <WeeklyTopSelling /> </div>
-  </>
+  <div className="absolute top-0 left-0 w-full h-screen"> 
+    <video className="w-full h-full object-cover" src="/seaLandscape.mp4" width="0" height="0" autoPlay loop muted preload="auto" playsInline>Your browser does not support the video tag.</video>
+  </div>
   );
 }

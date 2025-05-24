@@ -21,7 +21,7 @@
 }
 
 body {
-  background-image: url('/Imagen_Home.jpg');
+  background-color: var(--background);
   background-size: cover;
   background-repeat: repeat-y;
   background-position: center;

@@ -35,4 +35,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
+.chewy-regular {
+  font-family: "Chewy", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}

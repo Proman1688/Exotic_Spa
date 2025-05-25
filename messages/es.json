@@ -1,15 +1,19 @@
 {
   "topBar": {
-      "welcome":"Bienvenido a nuestra tienda en línea!!",
       "English":"Ingles",
       "Spanish":"Español",
-      "French":"Frances",
-      "Signup": "Iniciar sesión o registrarse"
+      "French":"Frances"
   },
-  "menu": {
+  "menu":{
       "home":"Inicio",
-      "shop":"Tienda",
-      "about":"Sobre nosotros"
+      "services":"Servicios",
+      "login":"Iniciar sesión",
+      "contact":"Contacto"
+  },
+  "home": {
+    "welcome":"Bienvenido a Exotic Spa",
+    "description":"Descubre un oasis de relajación y bienestar, donde cada experiencia está diseñada para rejuvenecer tu cuerpo y mente",
+    "bookNow":"Reservar ahora"
   },
   "featuredProducts": {
       "featured":"Productos destacados"

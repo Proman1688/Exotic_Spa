@@ -1,15 +1,19 @@
 {
   "topBar": {
-    "welcome":"Bienvenue dans notre boutique en ligne !!",
     "English":"Anglais",
     "Spanish":"Espagnol",
-    "French":"Français",
-    "Signup": "Se connecter ou s'inscrire"
+    "French":"Français"
   },
-  "menu": {
-    "home":"Accueil",
-    "shop":"Magasin",
-    "about":"À propos"
+  "menu":{
+      "home":"Accueil",
+      "services":"Services",
+      "login":"Se connecter",
+      "contact":"Contact"
+  },
+  "home": {
+    "welcome":"Bienvenue chez Exotic Spa",
+    "description":"Découvrez un oasis de relaxation et de bien-être, où chaque expérience est conçue pour rajeunir votre corps et votre esprit.",
+    "bookNow":"Réserver maintenant"
   },
   "featuredProducts": {
     "featured":"Produits en vedette"

@@ -83,7 +83,7 @@ export default function TopBar() {
     </Head>
     
     <nav className="flex justify-between p-2 px-16 text-[14px] text-white max-sm:px-5 select-none z-10 relative">
-      <p className="flex items-center max-sm:hidden"></p>
+      <p className="flex items-center"></p>
 
       <div className="flex items-center space-x-5 max-sm:space-x-2 max-sm:w-full max-sm:justify-between">
         <select className="max-sm:text-[14px]" onChange={(e => language(e.target.value))} value={selectedLang}>
@@ -91,21 +91,15 @@ export default function TopBar() {
           <option className="text-black">{t('English')}</option>
           <option className="text-black">{t('Spanish')}</option>
         </select>
-        <Link 
-          href="/sign-up"
-          className="border-l-2 px-5 text-[15px] max-sm:text-[14px] max-sm:px-1 text-center max-sm:w-36 transition-all duration-300 hover:text-black hover:underline-offset-4"
-        >
-          {t('Signup')}
-        </Link>
         <div className="flex space-x-4">
           <Link href="https://github.com/jadodevs" className="transition-transform duration-300 hover:scale-110 hover:opacity-80">
-            <Image className="hover:invert" src="/github.svg" alt="GitHub" width="30" height="30" />
+            <Image src="/github.svg" alt="GitHub" width="30" height="30" />
           </Link>
           <Link href="https://instagram.com/mi_usuario" className="transition-transform duration-300 hover:scale-110 hover:opacity-80">
-            <Image className="hover:invert" src="/instagram.svg" alt="Instagram" width="30" height="30" />
+            <Image src="/instagram.svg" alt="Instagram" width="30" height="30" />
           </Link>
           <Link href="https://linkedin.com/in/mi_usuario" className="transition-transform duration-300 hover:scale-110 hover:opacity-80">
-            <Image className="hover:invert" src="/linkedin.svg" alt="LinkedIn" width="30" height="30" />
+            <Image src="/linkedin.svg" alt="LinkedIn" width="30" height="30" />
           </Link>
         </div>
       </div>

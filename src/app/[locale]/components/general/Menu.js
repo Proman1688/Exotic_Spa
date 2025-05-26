@@ -44,7 +44,7 @@ export default function Menu() {
           <div className="hidden md:flex space-x-6 text-lg transform">
             {[
               { href: "/", label: t("home") },
-              { href: "/shop-page", label: t("services") },
+              { href: "/services", label: t("services") },
               { href: "/login", label: t("login") },
               { href: "/", label: t("contact") },
             ].map((item, index) => (
@@ -77,7 +77,7 @@ export default function Menu() {
         >
           {[
             { name: t("home"), link: "/" },
-            { name: t("services"), link: "/shop-page" },
+            { name: t("services"), link: "/services" },
             { name: t("login"), link: "/login" },
             { name: t("contact"), link: "/" },
           ].map((item, index) => (

@@ -2,7 +2,6 @@ import { Geist, Geist_Mono, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Menu from "./components/general/Menu";
 import TopBar from "./components/general/top-bar";
-import Footer from "./components/general/Footer";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
@@ -41,6 +40,7 @@ export default async function RootLayout({ children, params }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
       </head>
       <body
@@ -51,7 +51,7 @@ export default async function RootLayout({ children, params }) {
           <Menu />
           <div className="absolute top-0 left-0 w-full h-screen">
             <video className="w-full h-full object-cover fixed" src="/seaLandscape.mp4" width="0" height="0" autoPlay loop muted preload="auto" playsInline>Your browser does not support the video tag.</video>
-            <div className="w-full h-full fixed z-[9] bg-[rgb(0,0,0,0.1)]"></div>
+            <div className="w-full h-full fixed z-[9] bg-[rgb(0,0,0,0.3)]"></div>
           </div>
           <main className="flex-grow relative z-10 flex justify-center items-center">{children}</main>
         </NextIntlClientProvider>

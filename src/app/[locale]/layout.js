@@ -5,6 +5,7 @@ import TopBar from "./components/general/top-bar";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import Video from "./components/general/video";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,10 +49,7 @@ export default async function RootLayout({ children, params }) {
       >
         <NextIntlClientProvider>
           <Menu />
-          <div className="absolute top-0 left-0 w-full h-screen">
-            <video className="w-full h-full object-cover fixed" src="/seaLandscape.mp4" width="0" height="0" autoPlay loop muted preload="auto" playsInline>Your browser does not support the video tag.</video>
-            <div className="w-full h-full fixed z-[9] bg-[rgb(0,0,0,0.3)]"></div>
-          </div>
+          <Video />
           <main className="flex-grow relative z-10 flex justify-center items-center">{children}</main>
           <TopBar className="fixed top-0"/>
         </NextIntlClientProvider>

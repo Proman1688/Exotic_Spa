@@ -44,59 +44,14 @@
     "alreadyHave": "Vous avez déjà un compte ?",
     "signIn": "Connectez-vous ici"
   },
-  "featuredProducts": {
-    "featured":"Produits en vedette"
+  "services": {
+    "title": "Nos Services et Soins",
+    "description": "Découvrez la variété d'expériences rajeunissantes que nous avons conçues pour votre bien-être",
+    "massages": "Massages Thérapeutiques et Relaxants",
+    "facialTreatments": "Soins du Visage",
+    "bodyTreatments": "Soins du Corps"
   },
-  "weeklyTopSelling": {
-    "weekly":"Meilleures ventes de la semaine"
-  },
-  "footer": {
-    "option": "Votre meilleure option pour les achats en ligne",
-    "link": "Liens",
-    "home": "Accueil",
-    "shop": "Magasin",
-    "about": "À propos",
-    "followUs": "Suivez-nous",
-    "rights": "Tous les droits sont réservés"
-  },
-  "catalog": {
-    "showMore":"Afficher plus",
-    "showLess":"Afficher moins"
-  },
-  "filter1": {
-    "size":"Taille",
-    "color":"Couleur",
-    "material":"Matériau",
-    "type":"Type",
-    "brand":"Marque",
-    "price":"Prix"
-  },
-  "filter2":{
-    "jackets":"Vestes & Manteaux",
-    "hoodies": "Sweatshirts & Sweats",
-    "shirts": "Chemises",
-    "tshirts": "T-shirts & Manches longues",
-    "vests": "Gilets",
-    "accessories": "Accessoires",
-    "jeans": "Jeans",
-    "bags": "Sacs",
-    "shoes": "Chaussures & Baskets",
-    "bigsales": "Grosses soldes"
-  },
-  "cart":{
-    "cart":"PANIER",
-    "delivery":"RÉSUMÉ DE LIVRAISON",
-    "subtotal":"SOUS-TOTAL",
-    "shipping":"LIVRAISON",
-    "iva":"TVA",
-    "total":"TOTAL"
-  },
-  "about-us":{
-    "about":"À propos de nous",
-    "description":"Nous sommes une entreprise de mode en ligne dédiée à offrir les dernières tendances et styles à nos clients. Notre mission est de fournir des vêtements de haute qualité et abordables qui répondent aux besoins de chacun. Nous croyons que la mode doit être accessible à tous, c'est pourquoi nous proposons une large gamme de produits pour tous les goûts et budgets. Notre équipe travaille sans relâche pour s'assurer que chaque article que nous proposons est soigneusement sélectionné et testé pour garantir la satisfaction de nos clients. Merci de choisir notre boutique en ligne pour vos besoins en mode !",
-    "mission":"Notre mission",
-    "mission-description":"Notre mission est de fournir des vêtements de haute qualité et abordables qui répondent aux besoins de chacun. Nous croyons que la mode doit être accessible à tous, c'est pourquoi nous proposons une large gamme de produits pour tous les goûts et budgets.",
-    "vision":"Notre vision",
-    "vision-description":"Notre vision est de devenir la destination de choix pour les acheteurs en ligne à la recherche des dernières tendances et styles. Nous nous efforçons d'offrir une expérience d'achat exceptionnelle à nos clients, avec un service client exceptionnel et une sélection de produits de premier ordre."
+  "servicesButton": {
+    "bookNow": "Réserver Maintenant"
   }
 }

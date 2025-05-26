@@ -44,59 +44,14 @@
     "alreadyHave": "Already have an account?",
     "signIn": "Sign in here"
   },
-  "featuredProducts":{
-      "featured":"Featured Products"
+  "services": {
+    "title": "Our Services and Treatments",
+    "description": "Discover the variety of rejuvenating experiences we have designed for your well-being",
+    "massages": "Therapeutic and Relaxing Massages",
+    "facialTreatments": "Facial Treatments",
+    "bodyTreatments": "Body Treatments"
   },
-  "weeklyTopSelling":{
-    "weekly":"Weekly Top Selling"
-  },
-  "footer":{
-    "option": "Your best option in online shopping",
-    "link": "Links",
-    "home": "Home",
-    "shop": "Shop",
-    "about": "About us",
-    "followUs": "Follow us",
-    "rights": "All rights reserved"
-  },
-  "catalog":{
-    "showMore":"Show more",
-    "showLess":"Show less"
-  },
-  "filter1":{
-    "size":"Size",
-    "color":"Color",
-    "material":"Material",
-    "type":"Type",
-    "brand":"Brand",
-    "price":"Price"
-  },
-  "filter2":{
-    "jackets":"Jackets & Coats",
-    "hoodies": "Hoodies & Sweats",
-    "shirts": "Shirts",
-    "tshirts": "T-Shirts & Longsleeve",
-    "vests": "Vests",
-    "accessories": "Accessories",
-    "jeans": "Jeans",
-    "bags": "Bags",
-    "shoes": "Shoes & Sneakers",
-    "bigsales": "Big Sales"
-  },
-  "cart":{
-    "cart":"CART",
-    "delivery":"DELIVERY SUMMARY",
-    "subtotal":"SUBTOTAL",
-    "shipping":"SHIPPING",
-    "iva":"IVA",
-    "total":"TOTAL"
-  },
-  "about-us":{
-    "about":"About us",
-    "description":"We are a company dedicated to the sale of clothing and accessories. We offer a wide variety of products to meet the needs of our customers. Our goal is to provide high quality products at competitive prices. We are committed to customer satisfaction and strive to provide an excellent shopping experience.",
-    "mission":"Mission",
-    "mission-description":"Our mission is to provide our customers with high quality products at competitive prices. We are committed to customer satisfaction and strive to provide an excellent shopping experience.",
-    "vision":"Vision",
-    "vision-description":"Our vision is to be a leading company in the online clothing and accessories market. We aim to expand our product range and reach more customers around the world."
+  "servicesButton": {
+    "bookNow": "Book Now"
   }
 }

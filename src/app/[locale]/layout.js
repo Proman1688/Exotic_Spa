@@ -47,13 +47,13 @@ export default async function RootLayout({ children, params }) {
         className={`${geistSans.variable} ${geistMono.variable} ${openSans.variable} antialiased flex flex-col min-h-screen relative`}
       >
         <NextIntlClientProvider>
-          <TopBar />
           <Menu />
           <div className="absolute top-0 left-0 w-full h-screen">
             <video className="w-full h-full object-cover fixed" src="/seaLandscape.mp4" width="0" height="0" autoPlay loop muted preload="auto" playsInline>Your browser does not support the video tag.</video>
             <div className="w-full h-full fixed z-[9] bg-[rgb(0,0,0,0.3)]"></div>
           </div>
           <main className="flex-grow relative z-10 flex justify-center items-center">{children}</main>
+          <TopBar className="fixed top-0"/>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -82,7 +82,7 @@ export default function TopBar() {
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     </Head>
     
-    <nav className="flex justify-between p-2 px-16 text-[14px] text-white max-sm:px-5 select-none z-10 relative">
+    <nav className="flex justify-between p-2 px-16 text-[14px] text-white max-sm:px-5 select-none z-10 fixed bottom-0 left-0 w-full bg-[rgba(0,0,0,0.5)] backdrop-blur-md shadow-lg">
       <p className="flex items-center"></p>
 
       <div className="flex items-center space-x-5 max-sm:space-x-2 max-sm:w-full max-sm:justify-between">

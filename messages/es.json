@@ -15,6 +15,35 @@
     "description":"Descubre un oasis de relajación y bienestar, donde cada experiencia está diseñada para rejuvenecer tu cuerpo y mente",
     "bookNow":"Reservar ahora"
   },
+  "signIn": {
+    "title": "Bienvenido a EXOTIC SPA",
+    "subtitle": "Ingresa tus credenciales para acceder",
+    "email": "Correo Electrónico",
+    "exampleEmail": "tu@correo.com",
+    "password": "Contraseña",
+    "examplePassword": "Tu contraseña",
+    "remindMe": "Recordarme",
+    "forgot": "¿Olvidaste tu contraseña?",
+    "submit": "Ingresar",
+    "dontHave": "¿No tienes una cuenta?",
+    "signUp": "Regístrate aquí"
+  },
+  "signup": {
+    "title":"Crea tu cuenta en EXOTIC SPA",
+    "subtitle":"Únete para acceder a nuestros servicios exclusivos",
+    "name":"Nombre Completo",
+    "placeholderName":"Tu nombre completo",
+    "email":"Correo Electrónico",
+    "placeholderEmail": "tu@correo.com",
+    "password":"Contraseña",
+    "placeholderPassword":"Mínima 8 caracteres",
+    "confirmPassword":"Confirmar Contraseña",
+    "placeholderConfirmPassword":"Repite tu contraseña",
+    "terms":"Acepto los términos y condiciones",
+    "submit":"Registrarse",
+    "alreadyHave":"¿Ya tienes una cuenta?",
+    "signIn":"Inicia sesión aquí"
+  },
   "featuredProducts": {
       "featured":"Productos destacados"
   },
@@ -29,27 +58,6 @@
     "about": "Sobre nosotros",
     "followUs": "Síguenos",
     "rights": "Todos los derechos reservados"
-  },
-  "signup": {
-    "create":"Crear una cuenta",
-    "already":"¿Ya tienes una cuenta?",
-    "login":"Iniciar sesión",
-    "firstName":"Nombre",
-    "lastName":"Apellido",
-    "email":"Correo electrónico",
-    "password":"Ingresa tu contraseña",
-    "agree": "Estoy de acuerdo con los ",
-    "terms": "Términos y condiciones",
-    "or":"o registrarse con"
-  },
-  "login": {
-    "login":"Iniciar sesión",
-    "email":"Correo electrónico",
-    "password":"Ingresa tu contraseña",
-    "forgot":"¿Olvidaste tu contraseña?",
-    "or":"o iniciar sesión con",
-    "dontHave":"¿No tienes una cuenta?",
-    "create":"Crear una cuenta"
   },
   "catalog": {
     "showMore":"Mostrar más",

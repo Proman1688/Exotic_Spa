@@ -1,4 +1,4 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Menu from "./components/general/Menu";
 import TopBar from "./components/general/top-bar";
@@ -10,6 +10,12 @@ import { routing } from "@/i18n/routing";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
+  subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
@@ -33,17 +39,21 @@ export default async function RootLayout({ children, params }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="true" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased relative`}
+        className={`${geistSans.variable} ${geistMono.variable} ${openSans.variable} antialiased flex flex-col min-h-screen relative`}
       >
         <NextIntlClientProvider>
           <TopBar />
           <Menu />
-          <main>{children}</main>
+          <div className="absolute top-0 left-0 w-full h-screen">
+            <video className="w-full h-full object-cover fixed" src="/seaLandscape.mp4" width="0" height="0" autoPlay loop muted preload="auto" playsInline>Your browser does not support the video tag.</video>
+            <div className="w-full h-full fixed z-[9] bg-[rgb(0,0,0,0.1)]"></div>
+          </div>
+          <main className="flex-grow relative z-10 flex justify-center items-center">{children}</main>
         </NextIntlClientProvider>
       </body>
     </html>

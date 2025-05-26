@@ -15,6 +15,35 @@
     "description":"Découvrez un oasis de relaxation et de bien-être, où chaque expérience est conçue pour rajeunir votre corps et votre esprit.",
     "bookNow":"Réserver maintenant"
   },
+  "signIn": {
+    "title": "Bienvenue chez EXOTIC SPA",
+    "subtitle": "Entrez vos identifiants pour accéder",
+    "email": "Adresse e-mail",
+    "exampleEmail": "vous@exemple.com",
+    "password": "Mot de passe",
+    "examplePassword": "Votre mot de passe",
+    "remindMe": "Se souvenir de moi",
+    "forgot": "Mot de passe oublié ?",
+    "submit": "Se connecter",
+    "dontHave": "Vous n'avez pas de compte ?",
+    "signUp": "Inscrivez-vous ici"
+  },
+  "signup": {
+    "title": "Créez votre compte chez EXOTIC SPA",
+    "subtitle": "Rejoignez-nous pour accéder à nos services exclusifs",
+    "name": "Nom complet",
+    "placeholderName": "Votre nom complet",
+    "email": "Adresse e-mail",
+    "placeholderEmail": "vous@exemple.com",
+    "password": "Mot de passe",
+    "placeholderPassword": "Minimum 8 caractères",
+    "confirmPassword": "Confirmer le mot de passe",
+    "placeholderConfirmPassword": "Répétez votre mot de passe",
+    "terms": "J'accepte les conditions générales",
+    "submit": "S'inscrire",
+    "alreadyHave": "Vous avez déjà un compte ?",
+    "signIn": "Connectez-vous ici"
+  },
   "featuredProducts": {
     "featured":"Produits en vedette"
   },
@@ -29,27 +58,6 @@
     "about": "À propos",
     "followUs": "Suivez-nous",
     "rights": "Tous les droits sont réservés"
-  },
-  "signup": {
-    "create":"Créer un compte",
-    "already":"Vous avez déjà un compte ?",
-    "login":"Se connecter",
-    "firstName":"Prénom",
-    "lastName":"Nom de famille",
-    "email":"Email",
-    "password":"Entrez votre mot de passe",
-    "agree": "J'accepte les ",
-    "terms": "Conditions générales",
-    "or":"ou inscrivez-vous avec"
-  },
-  "login": {
-    "login":"Connexion",
-    "email":"Email",
-    "password":"Entrez votre mot de passe",
-    "forgot":"Mot de passe oublié ?",
-    "or":"ou connectez-vous avec",
-    "dontHave":"Vous n'avez pas de compte ?",
-    "create":"Créer un compte"
   },
   "catalog": {
     "showMore":"Afficher plus",

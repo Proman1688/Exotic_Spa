@@ -7,13 +7,42 @@
   "menu":{
       "home":"Home",
       "services":"Services",
-      "login":"Log in",
+      "login":"Sign in",
       "contact":"Contact"
   },
   "home":{
     "welcome":"Welcome to Exotic Spa",
     "description":"Discover an oasis of relaxation and wellness, where every experience is designed to rejuvenate your body and mind.",
     "bookNow":"Book now"
+  },
+  "signIn": {
+    "title": "Welcome to EXOTIC SPA",
+    "subtitle": "Enter your credentials to access",
+    "email": "Email",
+    "exampleEmail": "you@example.com",
+    "password": "Password",
+    "examplePassword": "Your password",
+    "remindMe": "Remember me",
+    "forgot": "Forgot your password?",
+    "submit": "Sign In",
+    "dontHave": "Don't have an account?",
+    "signUp": "Sign up here"
+  },
+  "signup": {
+    "title": "Create your account at EXOTIC SPA",
+    "subtitle": "Join us to access our exclusive services",
+    "name": "Full Name",
+    "placeholderName": "Your full name",
+    "email": "Email",
+    "placeholderEmail": "you@email.com",
+    "password": "Password",
+    "placeholderPassword": "Minimum 8 characters",
+    "confirmPassword": "Confirm Password",
+    "placeholderConfirmPassword": "Repeat your password",
+    "terms": "I accept the terms and conditions",
+    "submit": "Sign Up",
+    "alreadyHave": "Already have an account?",
+    "signIn": "Sign in here"
   },
   "featuredProducts":{
       "featured":"Featured Products"
@@ -29,27 +58,6 @@
     "about": "About us",
     "followUs": "Follow us",
     "rights": "All rights reserved"
-  },
-  "signup": {
-    "create":"Create an account",
-    "already":"Already have an account?",
-    "login":"Log in",
-    "firstName":"First Name",
-    "lastName":"Last Name",
-    "email":"Email",
-    "password":"Enter your password",
-    "agree": "I agree to the ",
-    "terms": "Terms & Conditions",
-    "or":"or register with"
-  },
-  "login": {
-    "login":"Login",
-    "email":"Email",
-    "password":"Enter your password",
-    "forgot":"Forgot your password?",
-    "or":"or login with",
-    "dontHave":"Don't have an account?",
-    "create":"Create an account"
   },
   "catalog":{
     "showMore":"Show more",

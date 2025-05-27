@@ -4,18 +4,61 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "use-intl";
+import { useSession } from "next-auth/react";
 
 export default function Menu() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const t = useTranslations("menu");
+  const { data: session } = useSession();
+  const role = session?.user?.role || "guest";
+
+  let links = [];
+  console.log("User role:", role); // Debugging line to check the role
+
+  if (role === "guest") {
+    links = [
+      { href: "/", label: t("home") },
+      { href: "/services", label: t("services") },
+      { href: "/login", label: t("login") },
+      { href: "/", label: t("contact") },
+    ];
+  } else if (role === "cliente") {
+    links = [
+      { href: "/", label: t("clientHome") },
+      { href: "/services", label: t("services") },
+      { href: "#", label: t("bookAppointment") },
+      { href: "#", label: t("myAppointments") },
+      { href: "#", label: t("myProfile") },
+      { href: "/signOut", label: t("logout") },
+    ];
+  } else if (role === "colaborador") {
+    links = [
+      { href: "#", label: t("mySchedule") },
+      { href: "#", label: t("completeSchedule") },
+      { href: "#", label: t("clientsServed") },
+      { href: "#", label: t("myProfile") },
+      { href: "/signOut", label: t("logout") },
+    ];
+  } else if (role === "admin") {
+    links = [
+      { href: "#", label: t("dashboard") },
+      { href: "#", label: t("appointmentManagement") },
+      { href: "#", label: t("clientManagement") },
+      { href: "#", label: t("teamMembers") },
+      { href: "#", label: t("inventory") },
+      { href: "#", label: t("servicesPrices") },
+      { href: "#", label: t("memberships") },
+      { href: "/signOut", label: t("logout") },
+    ];
+  }
 
   const handleLinkClick = () => {
     setIsClosing(true);
     setTimeout(() => {
       setIsMenuOpen(false);
       setIsClosing(false);
-    }, 300); // 300ms coincide con la duración de la animación
+    }, 300); 
   };
 
   return (
@@ -41,13 +84,8 @@ export default function Menu() {
         </div>
 
         <div className="flex items-center space-x-8">
-          <div className="hidden md:flex space-x-6 text-lg transform">
-            {[
-              { href: "/", label: t("home") },
-              { href: "/services", label: t("services") },
-              { href: "/login", label: t("login") },
-              { href: "/", label: t("contact") },
-            ].map((item, index) => (
+          <div className="hidden md:flex space-x-6 text-base transform">
+            {links.map((item, index) => (
               <Link
                 key={index}
                 href={item.href}
@@ -71,24 +109,19 @@ export default function Menu() {
 
       {(isMenuOpen || isClosing) && (
         <div
-          className={`md:hidden bg-opacity-90 text-white p-4 rounded-lg 
-          transform origin-top transition-all duration-300 ease-out z-20 relative flex justify-between
+          className={`md:hidden bg-opacity-90 text-white p-4 rounded-lg
+          transform origin-top transition-all duration-300 ease-out z-30 relative
+          overflow-x-auto whitespace-nowrap
           ${isClosing ? "scale-y-0 opacity-0" : "scale-y-100 opacity-100"}`}
         >
-          {[
-            { name: t("home"), link: "/" },
-            { name: t("services"), link: "/services" },
-            { name: t("login"), link: "/login" },
-            { name: t("contact"), link: "/" },
-          ].map((item, index) => (
+          {links.map((item, index) => (
             <Link
               key={index}
-              href={item.link}
-              className="block font-medium rounded-md text-center 
-              transition-all duration-300 ease-out hover:scale-105 hover:bg-gray-700 text-xs"
+              href={item.href}
+              className="inline-block mr-4 font-medium rounded-md text-center z-10 transition-all duration-300 ease-out hover:scale-105 hover:bg-gray-700 px-4 py-2"
               onClick={handleLinkClick}
             >
-              {item.name}
+              {item.label}
             </Link>
           ))}
         </div>

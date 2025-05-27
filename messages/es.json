@@ -8,7 +8,22 @@
       "home":"Inicio",
       "services":"Servicios",
       "login":"Iniciar sesión",
-      "contact":"Contacto"
+      "contact":"Contacto",
+      "clientHome":"Inicio Cliente",
+      "bookAppointment": "Agendar Cita",
+      "myAppointments": "Mis Citas",
+      "myProfile": "Mi Perfil",
+      "logout": "Cerrar Sesión",
+      "mySchedule": "Mi Agenda",
+      "completeSchedule": "Agenda Completa",
+      "clientsServed": "Clientes Atendidos",
+      "dashboard": "Panel de Control",
+      "appointmentManagement": "Gestión de Citas",
+      "clientManagement": "Gestión de Clientes",
+      "teamMembers": "colaboradores",
+      "inventory": "Inventario",
+      "servicesPrices": "Servicios y Precios",
+      "memberships": "Membresías"
   },
   "home": {
     "welcome":"Bienvenido a Exotic Spa",
@@ -26,7 +41,8 @@
     "forgot": "¿Olvidaste tu contraseña?",
     "submit": "Ingresar",
     "dontHave": "¿No tienes una cuenta?",
-    "signUp": "Regístrate aquí"
+    "signUp": "Regístrate aquí",
+    "invalidCredentials": "Credenciales inválidas, por favor intenta de nuevo"
   },
   "signup": {
     "title":"Crea tu cuenta en EXOTIC SPA",

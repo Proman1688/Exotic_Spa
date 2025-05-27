@@ -6,6 +6,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import Video from "./components/general/video";
+import { Providers } from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,12 +48,14 @@ export default async function RootLayout({ children, params }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${openSans.variable} antialiased flex flex-col min-h-screen relative`}
       >
-        <NextIntlClientProvider>
-          <Menu />
-          <Video />
-          <main className="flex-grow relative z-10 flex justify-center items-center">{children}</main>
-          <TopBar className="fixed top-0"/>
-        </NextIntlClientProvider>
+        <Providers>
+          <NextIntlClientProvider>
+            <Menu />
+            <Video />
+            <main className="flex-grow relative z-10 flex justify-center items-center">{children}</main>
+            <TopBar className="fixed top-0"/>
+          </NextIntlClientProvider>
+        </Providers>
       </body>
     </html>
   );

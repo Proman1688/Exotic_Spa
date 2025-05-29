@@ -1,5 +1,5 @@
 "use client";
-import { signIn } from "next-auth/react";
+import { signIn, getSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import Link from "next/link";
@@ -25,7 +25,18 @@ export default function LoginMain() {
       if (res?.error) {
         setError(t('invalidCredentials'));
       } else {
-        router.push("/");
+        const session = await getSession();
+        const role = session?.user?.role || "guest";
+
+        if (role === "cliente") {
+          router.push("/home");
+        }else if (role === "colaborador") {
+          router.push("/");
+        }else if (role === "admin") {
+          router.push("/");
+        }else {
+          router.push("/");
+        }
       }
     }
 

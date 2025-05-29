@@ -14,41 +14,40 @@ export default function Menu() {
   const role = session?.user?.role || "guest";
 
   let links = [];
-  console.log("User role:", role); // Debugging line to check the role
 
   if (role === "guest") {
     links = [
       { href: "/", label: t("home") },
       { href: "/services", label: t("services") },
       { href: "/login", label: t("login") },
-      { href: "/", label: t("contact") },
+      { href: "/contact", label: t("contact") },
     ];
   } else if (role === "cliente") {
     links = [
-      { href: "/", label: t("clientHome") },
+      { href: "/client/clientHome", label: t("clientHome") },
       { href: "/services", label: t("services") },
-      { href: "#", label: t("bookAppointment") },
-      { href: "#", label: t("myAppointments") },
-      { href: "#", label: t("myProfile") },
+      { href: "/client/bookAppointment", label: t("bookAppointment") },
+      { href: "/client/myAppointments", label: t("myAppointments") },
+      { href: "/myProfile", label: t("myProfile") },
       { href: "/signOut", label: t("logout") },
     ];
   } else if (role === "colaborador") {
     links = [
-      { href: "#", label: t("mySchedule") },
-      { href: "#", label: t("completeSchedule") },
-      { href: "#", label: t("clientsServed") },
-      { href: "#", label: t("myProfile") },
+      { href: "/collaborator/mySchedule", label: t("mySchedule") },
+      { href: "/collaborator/completeSchedule", label: t("completeSchedule") },
+      { href: "/collaborator/clientsServed", label: t("clientsServed") },
+      { href: "/myProfile", label: t("myProfile") },
       { href: "/signOut", label: t("logout") },
     ];
   } else if (role === "admin") {
     links = [
-      { href: "#", label: t("dashboard") },
-      { href: "#", label: t("appointmentManagement") },
-      { href: "#", label: t("clientManagement") },
-      { href: "#", label: t("teamMembers") },
-      { href: "#", label: t("inventory") },
-      { href: "#", label: t("servicesPrices") },
-      { href: "#", label: t("memberships") },
+      { href: "/admin/dashboard", label: t("dashboard") },
+      { href: "/admin/appointmentManagement", label: t("appointmentManagement") },
+      { href: "/admin/clientManagement", label: t("clientManagement") },
+      { href: "/admin/teamMembers", label: t("teamMembers") },
+      { href: "/admin/inventory", label: t("inventory") },
+      { href: "/admin/servicesPrices", label: t("servicesPrices") },
+      { href: "/admin/memberships", label: t("memberships") },
       { href: "/signOut", label: t("logout") },
     ];
   }

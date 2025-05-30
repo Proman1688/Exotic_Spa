@@ -29,11 +29,11 @@ export default function LoginMain() {
         const role = session?.user?.role || "guest";
 
         if (role === "cliente") {
-          router.push("/home");
+          router.push("/client/clientHome");
         }else if (role === "colaborador") {
-          router.push("/");
+          router.push("/collaborator/mySchedule");
         }else if (role === "admin") {
-          router.push("/");
+          router.push("/admin/dashboard");
         }else {
           router.push("/");
         }

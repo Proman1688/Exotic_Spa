@@ -83,7 +83,7 @@ export default function Menu() {
         </div>
 
         <div className="flex items-center space-x-8">
-          <div className="hidden md:flex space-x-6 text-base transform">
+          <div className="hidden md:flex space-x-6 text-base transform max-lg:text-sm">
             {links.map((item, index) => (
               <Link
                 key={index}

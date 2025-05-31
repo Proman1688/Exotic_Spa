@@ -69,5 +69,26 @@
   },
   "servicesButton": {
     "bookNow": "Reservar Ahora"
+  },
+  "clientHome": {
+    "welcome": "Bienvenido/a de nuevo a Exotic Spa",
+    "description": "estamos encantados de tenerte aquí. ¿Qué te gustaría hacer hoy?",
+    "quickActions": "Accesos Rápidas",
+    "bookAppointment": "Agendar Cita",
+    "descriptionBookAppointment": "Selecciona un servicio y horario para tu cita",
+    "myAppointments": "Mis Citas",
+    "descriptionMyAppointments": "Revisa y gestiona tus citas programadas",
+    "myProfile": "Mi Perfil",
+    "descriptionMyProfile": "Actualiza tu información personal y preferencias",
+    "ourServices": "Nuestros Servicios",
+    "descriptionOurServices": "Explora la variedad de servicios que ofrecemos",
+    "memberships": "Membresías",
+    "descriptionMemberships": "Descubre nuestros planes de membresía exclusivos",
+    "medicalConditions": "Condiciones Médicas",
+    "descriptionMedicalConditions": "Informa sobre cualquier condición médica relevante para tu tratamiento",
+    "yourNextsAppointments": "Tus Próximas Citas",
+    "noAppointments": "No tienes citas programadas en este momento.",
+    "viewDetails": "Ver Detalles",
+    "with": "Con"
   }
 }

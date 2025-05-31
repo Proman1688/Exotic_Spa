@@ -69,5 +69,26 @@
   },
   "servicesButton": {
     "bookNow": "Book Now"
+  },
+  "clientHome": {
+    "welcome": "Welcome back to Exotic Spa",
+    "description": "We're glad to have you here. What would you like to do today?",
+    "quickActions": "Quick Actions",
+    "bookAppointment": "Book Appointment",
+    "descriptionBookAppointment": "Select a service and time for your appointment",
+    "myAppointments": "My Appointments",
+    "descriptionMyAppointments": "Review and manage your scheduled appointments",
+    "myProfile": "My Profile",
+    "descriptionMyProfile": "Update your personal information and preferences",
+    "ourServices": "Our Services",
+    "descriptionOurServices": "Explore the variety of services we offer",
+    "memberships": "Memberships",
+    "descriptionMemberships": "Discover our exclusive membership plans",
+    "medicalConditions": "Medical Conditions",
+    "descriptionMedicalConditions": "Report any relevant medical conditions for your treatment",
+    "yourNextsAppointments": "Your Upcoming Appointments",
+    "noAppointments": "You have no scheduled appointments at the moment.",
+    "viewDetails": "View Details",
+    "with": "With"
   }
 }

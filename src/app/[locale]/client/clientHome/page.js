@@ -1,5 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 export default function home() {
     const t = useTranslations("clientHome");
@@ -28,11 +29,11 @@ export default function home() {
             <div className="w-full h-[0.5px] bg-black/40 mb-3"></div>
             <div className="grid grid-cols-3 gap-4 w-full max-sm:grid-cols-1 mb-10 max-md:grid-cols-2">
                 {quickAccess.map((item, index) => (
-                    <div key={index} className="bg-white shadow-2xl p-4 rounded-lg hover:bg-black/10 transition-colors cursor-pointer flex flex-col items-start">
+                    <Link href={item.link} key={index} className="bg-white shadow-2xl p-4 rounded-lg hover:bg-black/10 transition-colors cursor-pointer flex flex-col items-start">
                         <span className="material-symbols-outlined icon-filled !text-4xl block w-full text-center mb-4 text-blue-500">{item.icon}</span>
                         <h4 className="text-base font-bold text-center w-full mb-1">{item.title}</h4>
                         <p className="text-xs text-center w-full">{item.description}</p>
-                    </div>
+                    </Link>
                 ))}
             </div>
             <h3 className="text-2xl font-bold inline-block text-start w-full mb-1 max-md:text-lg max-sm:text-center">{t('yourNextsAppointments')}</h3>

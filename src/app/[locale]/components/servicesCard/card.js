@@ -6,7 +6,7 @@ import { useTranslations } from 'use-intl';
 export default function Card({title, description, image, duration, price}) {
     const t = useTranslations("servicesButton");
     return (
-        <article className='flex flex-col items-center justify-center bg-white rounded-lg shadow-md shadow-black max-w-sm min-h-[30rem] max-[375px]:w-full'>
+        <article className='flex flex-col items-center justify-center bg-white rounded-lg shadow-md shadow-black max-w-sm min-h-[30rem] max-[375px]:w-full max-[375px]:min-h-[35rem]'>
           <Image
             src={image}
             alt="Services Card"

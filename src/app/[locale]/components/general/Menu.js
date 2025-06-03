@@ -36,7 +36,7 @@ export default function Menu() {
       { href: "/collaborator/mySchedule", label: t("mySchedule") },
       { href: "/collaborator/completeSchedule", label: t("completeSchedule") },
       { href: "/collaborator/clientsServed", label: t("clientsServed") },
-      { href: "#", label: t("myProfile") },
+      { href: "/collaborator/myProfile", label: t("myProfile") },
       { href: "/signOut", label: t("logout") },
     ];
   } else if (role === "admin") {

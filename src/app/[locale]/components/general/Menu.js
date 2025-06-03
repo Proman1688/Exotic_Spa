@@ -28,7 +28,7 @@ export default function Menu() {
       { href: "/services", label: t("services") },
       { href: "/client/bookAppointment", label: t("bookAppointment") },
       { href: "/client/myAppointments", label: t("myAppointments") },
-      { href: "/myProfile", label: t("myProfile") },
+      { href: "/client/myProfile", label: t("myProfile") },
       { href: "/signOut", label: t("logout") },
     ];
   } else if (role === "colaborador") {
@@ -36,7 +36,7 @@ export default function Menu() {
       { href: "/collaborator/mySchedule", label: t("mySchedule") },
       { href: "/collaborator/completeSchedule", label: t("completeSchedule") },
       { href: "/collaborator/clientsServed", label: t("clientsServed") },
-      { href: "/myProfile", label: t("myProfile") },
+      { href: "#", label: t("myProfile") },
       { href: "/signOut", label: t("logout") },
     ];
   } else if (role === "admin") {

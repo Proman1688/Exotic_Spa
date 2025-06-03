@@ -9,7 +9,7 @@ export default function home() {
     const quickAccess = [
         { title: t('bookAppointment'), link: "/client/bookAppointment", description: t('descriptionBookAppointment'), icon: "calendar_add_on"},
         { title: t('myAppointments'), link: "/client/myAppointments", description: t('descriptionMyAppointments'), icon: "calendar_month" },
-        { title: t('myProfile'), link: "/myProfile", description: t('descriptionMyProfile'), icon: "person" },
+        { title: t('myProfile'), link: "/client/myProfile", description: t('descriptionMyProfile'), icon: "person" },
         { title: t('ourServices'), link: "/services", description: t('descriptionOurServices'), icon: "spa" },
         { title: t('memberships'), link: "#", description: t('descriptionMemberships'), icon: "star" },
         { title: t('medicalConditions'), link: "#", description: t('descriptionMedicalConditions'), icon: "note_add" }

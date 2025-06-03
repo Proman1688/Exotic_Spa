@@ -1,0 +1,123 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model administrador {
+  IdUsuario Int         @id
+  usuario   usuario     @relation(fields: [IdUsuario], references: [Id], onUpdate: Restrict, map: "administrador_ibfk_1")
+  proveedor proveedor[]
+  terapeuta terapeuta[]
+}
+
+model beneficio {
+  Id                 Int                  @id
+  Nombre             String               @db.VarChar(100)
+  Descripcion        String               @db.Text
+  membresiabeneficio membresiabeneficio[]
+}
+
+model chatbot {
+  Id        Int     @id
+  FAQ       String? @db.Text
+  IdCliente Int     @unique(map: "IdCliente")
+  cliente   cliente @relation(fields: [IdCliente], references: [IdUsuario], onUpdate: Restrict, map: "chatbot_ibfk_1")
+}
+
+model cita {
+  Id           Int       @id
+  Descripcion  String    @db.Text
+  Duracion     Int
+  Recordatorio DateTime  @db.Date
+  Estado       String    @db.VarChar(50)
+  Fecha        DateTime  @db.Date
+  IdCliente    Int
+  IdTerapeuta  Int
+  cliente      cliente   @relation(fields: [IdCliente], references: [IdUsuario], onUpdate: Restrict, map: "cita_ibfk_1")
+  terapeuta    terapeuta @relation(fields: [IdTerapeuta], references: [IdUsuario], onUpdate: Restrict, map: "cita_ibfk_2")
+
+  @@index([IdCliente], map: "IdCliente")
+  @@index([IdTerapeuta], map: "IdTerapeuta")
+}
+
+model cliente {
+  IdUsuario   Int        @id
+  Historial   String?    @db.Text
+  IdMembresia Int?
+  IdTerapeuta Int?
+  chatbot     chatbot?
+  cita        cita[]
+  membresia   membresia? @relation(fields: [IdMembresia], references: [Id], onDelete: Restrict, onUpdate: Restrict, map: "cliente_ibfk_2")
+  terapeuta   terapeuta? @relation(fields: [IdTerapeuta], references: [IdUsuario], onDelete: Restrict, onUpdate: Restrict, map: "cliente_ibfk_3")
+
+  @@index([IdMembresia], map: "IdMembresia")
+  @@index([IdTerapeuta], map: "IdTerapeuta")
+}
+
+model membresia {
+  Id                 Int                  @id
+  Nombre             String               @db.VarChar(100)
+  Precio             Decimal              @db.Decimal(10, 2)
+  cliente            cliente[]
+  membresiabeneficio membresiabeneficio[]
+}
+
+model membresiabeneficio {
+  IdMembresia Int
+  IdBeneficio Int
+  membresia   membresia @relation(fields: [IdMembresia], references: [Id], onUpdate: Restrict, map: "membresiabeneficio_ibfk_1")
+  beneficio   beneficio @relation(fields: [IdBeneficio], references: [Id], onUpdate: Restrict, map: "membresiabeneficio_ibfk_2")
+
+  @@id([IdMembresia, IdBeneficio])
+  @@index([IdBeneficio], map: "IdBeneficio")
+}
+
+model producto {
+  Id          Int       @id
+  Nombre      String    @db.VarChar(100)
+  Descripcion String    @db.Text
+  Precio      Decimal   @db.Decimal(10, 2)
+  IdProveedor Int
+  proveedor   proveedor @relation(fields: [IdProveedor], references: [Id], onUpdate: Restrict, map: "producto_ibfk_1")
+
+  @@index([IdProveedor], map: "IdProveedor")
+}
+
+model proveedor {
+  Id              Int           @id
+  Nombre          String        @db.VarChar(100)
+  Direccion       String        @db.VarChar(200)
+  Celular         String?       @db.VarChar(20)
+  IdAdministrador Int
+  producto        producto[]
+  administrador   administrador @relation(fields: [IdAdministrador], references: [IdUsuario], onUpdate: Restrict, map: "proveedor_ibfk_1")
+
+  @@index([IdAdministrador], map: "IdAdministrador")
+}
+
+model terapeuta {
+  IdUsuario       Int           @id
+  IdAdministrador Int
+  cita            cita[]
+  cliente         cliente[]
+  usuario         usuario       @relation(fields: [IdUsuario], references: [Id], onUpdate: Restrict, map: "terapeuta_ibfk_1")
+  administrador   administrador @relation(fields: [IdAdministrador], references: [IdUsuario], onUpdate: Restrict, map: "terapeuta_ibfk_2")
+
+  @@index([IdAdministrador], map: "IdAdministrador")
+}
+
+model usuario {
+  Id            Int            @id
+  Nombre        String         @db.VarChar(100)
+  Email         String         @db.VarChar(100)
+  Contrase_a    String         @map("Contraseña") @db.VarChar(100)
+  FechaRegistro DateTime       @db.Date
+  Celular       String?        @db.VarChar(20)
+  EstadoSesion  Boolean?
+  administrador administrador?
+  terapeuta     terapeuta?
+}

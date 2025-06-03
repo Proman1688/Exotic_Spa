@@ -1,11 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-
-const usuariosDB = [
-  { id: 1, email: "cliente@correo.com", password: "1234", name: "Cliente", role: "cliente" },
-  { id: 2, email: "colaborador@correo.com", password: "1234", name: "Colaborador", role: "colaborador" },
-  { id: 3, email: "admin@correo.com", password: "1234", name: "Administrador", role: "admin" },
-];
+import { prisma } from '@/lib/prisma';
+import bcrypt from "bcryptjs";
 
 export const authOptions = {
   providers: [
@@ -16,28 +12,70 @@ export const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        const user = usuariosDB.find(
-          u => u.email === credentials?.email && u.password === credentials?.password
-        );
-        if (user) return user;
-        return null;
-      },
+        try {
+          if (!credentials?.email || !credentials?.password) return null;
+
+          const user = await prisma.usuario.findFirst({
+          where: { Email: credentials.email },
+          include: {
+            administrador: true,
+            terapeuta: true,
+          },
+        });
+
+        if (!user) return null;
+
+        // Cargar cliente si existe
+        const cliente = await prisma.cliente.findUnique({
+          where: {
+            IdUsuario: user.Id,
+          },
+        });
+
+        // Determinar rol
+        let role = null;
+        if (user.administrador) {
+          role = "admin";
+        } else if (user.terapeuta) {
+          role = "colaborador";
+        } else if (cliente) {
+          role = "cliente";
+        }
+
+        // Retornar usuario con rol
+        return {
+          id: user.Id,
+          nombre: user.Nombre,
+          email: user.Email,
+          role,
+        };
+        } catch(err) {
+          console.error("❌ Error en authorize:", err);
+          return null;
+        }
+      }
     }),
   ],
   callbacks: {
     async jwt({ token, user }) {
-      if (user) token.role = user.role;
+      if (user) {
+        token.id = user.id;
+        token.role = user.role;
+      }
       return token;
     },
     async session({ session, token }) {
-      session.user.role = token.role;
+      if (token) {
+        session.user.id = token.id;
+        session.user.role = token.role;
+      }
       return session;
     },
   },
   pages: {
     signIn: "/login",
-    error: "/login", 
-    signOut: "/login", 
+    error: "/login",
+    signOut: "/login",
   },
 };
 

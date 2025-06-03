@@ -51,7 +51,7 @@ model cliente {
   IdTerapeuta Int?
   chatbot     chatbot?
   cita        cita[]
-  membresia   membresia? @relation(fields: [IdMembresia], references: [Id], onDelete: Restrict, onUpdate: Restrict, map: "cliente_ibfk_2")
+  usuario     usuario    @relation(fields: [IdUsuario], references: [Id], onUpdate: Restrict, map: "cliente_ibfk_1")
   terapeuta   terapeuta? @relation(fields: [IdTerapeuta], references: [IdUsuario], onDelete: Restrict, onUpdate: Restrict, map: "cliente_ibfk_3")
 
   @@index([IdMembresia], map: "IdMembresia")
@@ -62,7 +62,6 @@ model membresia {
   Id                 Int                  @id
   Nombre             String               @db.VarChar(100)
   Precio             Decimal              @db.Decimal(10, 2)
-  cliente            cliente[]
   membresiabeneficio membresiabeneficio[]
 }
 
@@ -111,13 +110,14 @@ model terapeuta {
 }
 
 model usuario {
-  Id            Int            @id
+  Id            Int            @id @default(autoincrement())
   Nombre        String         @db.VarChar(100)
-  Email         String         @db.VarChar(100)
+  Email         String         @unique(map: "Email") @db.VarChar(100)
   Contrase_a    String         @map("Contraseña") @db.VarChar(100)
   FechaRegistro DateTime       @db.Date
   Celular       String?        @db.VarChar(20)
   EstadoSesion  Boolean?
   administrador administrador?
+  cliente       cliente?
   terapeuta     terapeuta?
 }

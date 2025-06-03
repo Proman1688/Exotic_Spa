@@ -8,7 +8,7 @@ export default function home() {
 
     const quickAccess = [
         { title: "Ver calendario Completo", link: "/collaborator/completeSchedule", description: "Consulta tu agenda semanal o mensual", icon: "calendar_month"},
-        { title: "Mis Clientes Atendidos", link: "/collaborator/clientsServed", description: "Accede al historial de clientes que has tratado", icon: "calendar_month" },
+        { title: "Mis Clientes Atendidos", link: "/collaborator/clientsServed", description: "Accede al historial de clientes que has tratado", icon: "contacts" },
         { title: "Mi perfil", link: "/collaborator/myProfile", description: "Consulta tu perfil", icon: "person" },
     ];
 
@@ -20,11 +20,11 @@ export default function home() {
 
     return (
         <section className="relative flex flex-col items-center justify-center text-black/80 p-10 rounded-2xl mb-10 max-[375px]:p-0 bg-white w-[70%] mt-10 max-sm:p-5">
-            <h1 className="text-4xl font-bold flex items-center mb-3 text-center max-md:text-2xl max-md:flex-col"><span className="material-symbols-outlined !text-5xl mr-2 max-sm:!text-3xl">spa</span>Mi Agenda y Tareas</h1>
+            <h1 className="text-4xl font-bold flex items-center mb-3 text-center max-md:text-2xl max-md:flex-col"><span className="material-symbols-outlined !text-5xl mr-2 max-sm:!text-3xl icon-filled">manage_accounts</span>Mi Agenda y Tareas</h1>
             <p className="text-xs mb-10 max-sm:text-xs text-center max-md:text-[10px]">Bienvenido/a [Nombre del Colaborador]. Aqui tienes un resumen de tu jornada</p>
             
             <div className="border border-gray-100 p-5 shadow-lg rounded w-full mb-10">
-                <h3 className="text-2xl font-bold inline-flex items-center text-start w-full mb-1 max-md:text-lg max-sm:text-center max-md:flex-col"><span className="material-symbols-outlined !text-4xl mr-2 max-sm:!text-3xl">spa</span>Citas para Hoy - Martes, 13 de Mayo, 2025</h3>
+                <h3 className="text-2xl font-bold inline-flex items-center text-start w-full mb-1 max-md:text-lg max-sm:text-center max-md:flex-col"><span className="material-symbols-outlined !text-4xl mr-2 max-sm:!text-3xl icon-filled">today</span>Citas para Hoy - Martes, 13 de Mayo, 2025</h3>
                 <div className="w-full h-[0.5px] bg-black/40 mb-3"></div>
                 <div className="w-full mt-5 mb-10">
                     { appointments.length > 0 ? (
@@ -42,8 +42,8 @@ export default function home() {
                                         <p className="text-xs flex items-center gap-1 max-sm:w-full max-sm:justify-center max-sm:text-center">Notas: {appointment.notes}</p>
                                     </div>
                                     <div className="flex flex-col gap-2">
-                                        <button className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300 transition-colors cursor-pointer flex items-center text-sm"><span className="material-symbols-outlined !text-lg mr-2 icon-filled">spa</span>Ver Cliente</button>
-                                        <button className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300 transition-colors cursor-pointer flex items-center text-sm"><span className="material-symbols-outlined !text-lg mr-2 icon-filled">spa</span>Añadir Notas</button>
+                                        <button className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300 transition-colors cursor-pointer flex items-center text-sm"><span className="material-symbols-outlined !text-lg mr-2 icon-filled">person</span>Ver Cliente</button>
+                                        <button className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300 transition-colors cursor-pointer flex items-center text-sm"><span className="material-symbols-outlined !text-lg mr-2 icon-filled">note_stack_add</span>Añadir Notas</button>
                                     </div>
                                 </li>
                             ))}

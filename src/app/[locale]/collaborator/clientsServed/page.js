@@ -55,7 +55,7 @@ export default function ClientsServed() {
   }, [page, clients]);
 
   return (
-    <section className="relative flex flex-col items-center justify-center text-black/80 p-10 rounded-2xl mb-10 max-[375px]:p-0 bg-white w-[70%] mt-10 max-sm:p-5">
+    <section className="relative flex flex-col items-center justify-center text-black/80 p-10 rounded-2xl mb-10 max-[375px]:p-0 bg-white w-[70%] mt-10 max-sm:p-5 max-sm:w-[90%]">
             <h1 className="text-4xl font-bold flex items-center mb-3 text-center max-md:text-2xl max-md:flex-col"><span className="material-symbols-outlined !text-5xl mr-2 max-sm:!text-3xl icon-filled">Contacts</span>Mis Clientes Atendidos</h1>
             <p className="text-xs mb-10 max-sm:text-xs text-center max-md:text-[10px]">Consulta el historial de clientes que has atendido y accede a sus notas de tratamiento</p>
             <div className="border border-gray-100 p-5 shadow-lg rounded w-full mb-10 flex">

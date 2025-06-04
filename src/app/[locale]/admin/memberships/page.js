@@ -1,16 +1,130 @@
-export default function MembershipsPage() {
-    return (
-        <section className="relative flex flex-col items-center justify-center text-white p-10 rounded-2xl mb-10 max-[375px]:p-0">
-            <h1 className="text-5xl font-bold flex items-center mb-3 text-center max-sm:text-3xl max-sm:flex-col">Membresías</h1>
-            <p className="text-base mb-10 max-sm:text-xs text-center">Aquí puedes gestionar las membresías.</p>
-            <h3>accesos rápidos</h3>
-            <div className="grid grid-cols-3 gap-4 w-full max-sm:grid-cols-1">
-                {/* Quick access items can be added here */}
+"use client";
+import {
+  Table,
+  TableHeader,
+  TableColumn,
+  TableBody,
+  TableRow,
+  TableCell,
+  Pagination
+} from "@nextui-org/react";
+import { useState, useMemo } from "react";
+
+export default function membership() {
+
+const memberships = [
+    { name: "Plan Básico", rol: "$10/mes", email: "Mensual", phone: "Acceso a servicios básicos", state: "Activo" },
+    { name: "Plan Premium", rol: "$20/mes", email: "Mensual", phone: "Acceso a servicios premium", state: "Activo" },
+    { name: "Plan Gold", rol: "$30/mes", email: "Mensual", phone: "Acceso a todos los servicios", state: "Inactivo" },
+    { name: "Plan Familiar", rol: "$25/mes", email: "Mensual", phone: "Acceso a servicios familiares", state: "Activo" },
+    { name: "Plan Corporativo", rol: "$50/mes", email: "Mensual", phone: "Acceso a servicios corporativos", state: "Activo" },
+    { name: "Plan Estudiante", rol: "$15/mes", email: "Mensual", phone: "Descuentos para estudiantes", state: "Activo" },
+    { name: "Plan Senior", rol: "$12/mes", email: "Mensual", phone: "Descuentos para mayores de 60 años", state: "Inactivo" },
+]
+
+  const columns = [
+    { name: "Nombre del plan", key: "name" },
+    { name: "Precio", key: "rol" },
+    { name: "Ciclo de facturación", key: "email" },
+    { name: "Beneficios Clave", key: "phone" },
+    { name: "Estado", key: "state" },
+    { name: "Acciones", key: "actions" }
+  ];
+
+  const [page, setPage] = useState(1);
+  const rowsPerPage = 4;
+
+  const pages = Math.ceil(memberships.length / rowsPerPage);
+
+  const items = useMemo(() => {
+    const start = (page - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+
+    return memberships.slice(start, end);
+  }, [page, memberships]);
+
+  return (
+    <section className="relative flex flex-col items-center justify-center text-black/80 p-10 rounded-2xl mb-10 max-[375px]:p-0 bg-white w-[70%] mt-10 max-sm:p-5 max-sm:w-[90%]">
+            <h1 className="text-4xl font-bold flex items-center mb-3 text-center max-md:text-2xl max-md:flex-col"><span className="material-symbols-outlined !text-5xl mr-2 max-sm:!text-3xl icon-filled">contacts</span>Gestión de Planes de Membresia</h1>
+            <p className="text-xs mb-10 max-sm:text-xs text-center max-md:text-[10px]">Crea, visualiza y administra los planes de membresía ofrecidos a los clientes</p>
+            <div className="w-full mb-10 flex">
+              <button className="bg-blue-500 text-white px-4 py-2 text-base rounded-md hover:bg-blue-600 transition-colors flex items-center"
+                onClick={() => alert('Crear nuevo plan de membresía')}
+                >
+                <span className="material-symbols-outlined !text-lg mr-2 icon-filled">add</span>Crear nuevo plan
+                </button>
             </div>
-            <h1>Membresías Registradas</h1>
-            <div className="w-full max-w-2xl mt-5">
-                <p>No hay membresías registradas.</p>
+
+            <div className="border border-gray-100 p-5 shadow-lg rounded w-full">
+              <h3 className="text-2xl font-bold inline-flex items-center text-start w-full mb-1 max-md:text-lg max-sm:text-center max-md:flex-col">Listado de colaboradores</h3>
+              <div className="w-full h-[0.5px] bg-black/40 mb-3"></div>
+              <div className="w-full overflow-x-auto rounded-xl border border-gray-200 shadow-md">
+                <Table
+                className="overflow-x-auto"
+                  aria-label="Styled table with pagination"
+                  isStriped
+                  removeWrapper
+                  classNames={{
+                    base: "rounded-2xl shadow-md border border-gray-200",
+                    table: "bg-white text-sm text-gray-700",
+                    thead: "bg-gray-100 text-gray-900 font-semibold",
+                    th: "px-4 py-3 text-left",
+                    td: "px-4 py-3",
+                    tbody: "divide-y divide-gray-200",
+                    wrapper: "min-h-[222px]",
+                  }}
+                  bottomContent={
+                    <div className="w-full py-4 flex justify-center bg-gray-50 rounded-b-2xl border-t border-gray-200">
+                      <div>
+                        <Pagination
+                          isCompact
+                          showControls
+                          color="secondary"
+                          page={page}
+                          total={pages}
+                          onChange={(page) => setPage(page)}
+                          classNames={{
+                            item: "text-sm text-gray-700 mx-1 hover:bg-gray-200 rounded-full px-3 py-1 transition-colors",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  }
+
+                >
+                  <TableHeader>
+                    {columns.map((column) => (
+                      <TableColumn key={column.key} className="px-4 py-2 font-semibold text-gray-700">
+                        {column.name}
+                      </TableColumn>
+                    ))}
+                  </TableHeader>
+                  <TableBody>
+                    {items.map((item, index) => (
+                      <TableRow
+                        key={item.name}
+                        className={`${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'} hover:bg-gray-100 transition-colors`}
+                      >
+                        <TableCell className="px-4 py-2">{item.name}</TableCell>
+                        <TableCell className="px-4 py-2">{item.rol}</TableCell>
+                        <TableCell className="px-4 py-2 ">{item.email}</TableCell>
+                        <TableCell className="px-4 py-2 ">{item.phone}</TableCell>
+                        <TableCell className="px-4 py-2 ">{item.state}</TableCell>
+                        <TableCell className="px-4 py-2 text-right space-x-4 flex justify-center items-center">
+                          <button className="text-sm text-gray-700 hover:text-blue-500 flex items-center gap-1">
+                            <span className="material-symbols-outlined text-base icon-filled">edit_square</span>
+                          </button>
+                          <button className="text-sm text-gray-700 hover:text-blue-500 flex items-center gap-1">
+                            <span className="material-symbols-outlined text-base icon-filled">delete    </span>
+                          </button>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
+
             </div>
         </section>
-    );
+  );
 }

@@ -24,7 +24,7 @@ export default function CompleteSchedulePage() {
     },
   ];
   return (
-    <section className="relative flex flex-col items-center justify-center text-black/80 p-10 rounded-2xl mb-10 max-[375px]:p-0 bg-white w-[70%] mt-10 max-sm:p-5">
+    <section className="relative flex flex-col items-center justify-center text-black/80 p-10 rounded-2xl mb-10 max-[375px]:p-0 bg-white w-[70%] mt-10 max-sm:p-5 max-sm:w-[90%]">
             <h1 className="text-4xl font-bold flex items-center mb-3 text-center max-md:text-2xl max-md:flex-col"><span className="material-symbols-outlined !text-5xl mr-2 max-sm:!text-3xl icon-filled">calendar_month</span>Mi calendario Detallado</h1>
             <p className="text-xs mb-10 max-sm:text-xs text-center max-md:text-[10px]">Aqui puedes ver todas tus citas programadas por mes, semana o dia</p>
             <div className="border border-gray-100 p-5 shadow-lg rounded w-full mb-10 flex">

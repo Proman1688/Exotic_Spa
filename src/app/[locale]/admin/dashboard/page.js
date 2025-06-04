@@ -24,7 +24,7 @@ export default function home() {
     ];
 
     return (
-        <section className="relative flex flex-col items-center justify-center text-black/80 p-10 rounded-2xl mb-10 max-[375px]:p-0 bg-white w-[70%] mt-10 max-sm:p-5">
+        <section className="relative flex flex-col items-center justify-center text-black/80 p-10 rounded-2xl mb-10 max-[375px]:p-0 bg-white w-[70%] mt-10 max-sm:p-5 max-sm:w-[90%]">
             <h1 className="text-4xl font-bold flex items-center mb-3 text-center max-md:text-2xl">Dashboard de administración</h1>
             <p className="text-xs mb-10 max-sm:text-xs text-center max-md:text-[10px]">Bienvenido, [Nombre del Administrador]. Gestiona todos los aspectos de EXOTICSPA desde aqui</p>
             <div className="w-full h-[0.5px] bg-black/40 mb-3"></div>

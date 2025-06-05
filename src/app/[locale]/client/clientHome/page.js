@@ -1,10 +1,13 @@
 "use client";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
+import { useEffect, useState } from "react";
 
 export default function home() {
     const t = useTranslations("clientHome");
-    const name = "John Doe"; 
+    const { data: session } = useSession();
+    const [appointments, setAppointments] = useState([]);
 
     const quickAccess = [
         { title: t('bookAppointment'), link: "/client/bookAppointment", description: t('descriptionBookAppointment'), icon: "calendar_add_on"},
@@ -15,11 +18,13 @@ export default function home() {
         { title: t('medicalConditions'), link: "/client/clientMedicalForm", description: t('descriptionMedicalConditions'), icon: "note_add" }
     ];
 
-    const appointments = [
-        { day: "01", month: "MAY", year: "2023", startTime: "10:00 AM", endTime: "11:00 AM", service: "Massage", therapist: "John Doe" },
-        { day: "08", month: "JUNE", year: "2023", startTime: "02:00 PM", endTime: "03:00 PM", service: "Facial Treatment", therapist: "Jane Smith" },
-        { day: "20", month: "AUGUST", year: "2023", startTime: "01:00 PM", endTime: "02:00 PM", service: "Body Treatment", therapist: "Emily Johnson" }
-    ];
+    useEffect(() => {
+        if (session?.user?.id) {
+            fetch(`/api/auth/bookApp?idCliente=${session.user.id}`)
+                .then(res => res.json())
+                .then(data => setAppointments(data.citas || []));
+        }
+    }, [session]);
 
     return (
         <section className="relative flex flex-col items-center justify-center text-black/80 p-10 rounded-2xl mb-10 max-[375px]:p-0 bg-white w-[70%] mt-10 max-sm:p-5 max-sm:w-[90%]">
@@ -42,15 +47,21 @@ export default function home() {
                 { appointments.length > 0 ? (
                     <ul className="list-disc pl-5 w-full">
                         {appointments.map((appointment, index) => (
-                            <li key={index} className="mb-2 bg-white text-black p-3 rounded-lg flex items-center justify-between border-l-4 border-l-blue-500 hover:bg-blue-50 transition-colors shadow-xl max-sm:flex-col max-sm:gap-2">
+                            <li key={appointment.id} className="mb-2 bg-white text-black p-3 rounded-lg flex items-center justify-between border-l-4 border-l-blue-500 hover:bg-blue-50 transition-colors shadow-xl max-sm:flex-col max-sm:gap-2">
                                 <div className="flex flex-col items-center mr-4 bg-blue-500 text-white p-2 rounded-lg w-16">
-                                    <p className="font-semibold text-xl">{appointment.day}</p>
-                                    <p className="font-semibold text-[10px]">{appointment.month}</p>
+                                    <p className="font-semibold text-xl">{new Date(appointment.fecha).getDate().toString().padStart(2, '0')}</p>
+                                    <p className="font-semibold text-[10px]">{new Date(appointment.fecha).toLocaleString('default', { month: 'short' }).toUpperCase()}</p>
                                 </div>
                                 <div className="flex-1 flex flex-col items-start gap-1">
-                                    <p className="text-lg font-bold max-sm:text-center">{appointment.service}</p>
-                                    <p className="text-xs flex items-center gap-1 max-sm:w-full max-sm:justify-center max-sm:text-center"> <span className="material-symbols-outlined !text-xs">schedule</span> {appointment.startTime} - {appointment.endTime}</p>
-                                    <p className="text-xs flex items-center gap-1 max-sm:w-full max-sm:justify-center max-sm:text-center"><span className="material-symbols-outlined !text-xs">supervisor_account</span> {t('with')}: {appointment.therapist}</p>
+                                    <p className="text-lg font-bold max-sm:text-center">{appointment.servicio}</p>
+                                    <p className="text-xs flex items-center gap-1 max-sm:w-full max-sm:justify-center max-sm:text-center">
+                                        <span className="material-symbols-outlined !text-xs">schedule</span>
+                                        {appointment.horaInicio}
+                                    </p>
+                                    <p className="text-xs flex items-center gap-1 max-sm:w-full max-sm:justify-center max-sm:text-center">
+                                        <span className="material-symbols-outlined !text-xs">supervisor_account</span>
+                                        {t('with')}: {appointment.terapeuta}
+                                    </p>
                                 </div>
                                 <button className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 transition-colors cursor-pointer">{t('viewDetails')}</button>
                             </li>

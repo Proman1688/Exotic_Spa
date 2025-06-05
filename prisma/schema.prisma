@@ -15,31 +15,32 @@ model administrador {
 }
 
 model beneficio {
-  Id                 Int                  @id
+  Id                 Int                  @id @default(autoincrement())
   Nombre             String               @db.VarChar(100)
   Descripcion        String               @db.Text
   membresiabeneficio membresiabeneficio[]
 }
 
 model chatbot {
-  Id        Int     @id
+  Id        Int     @id @default(autoincrement())
   FAQ       String? @db.Text
   IdCliente Int     @unique(map: "IdCliente")
   cliente   cliente @relation(fields: [IdCliente], references: [IdUsuario], onUpdate: Restrict, map: "chatbot_ibfk_1")
 }
 
 model cita {
-  Id           Int       @id
+  Id           Int       @id @default(autoincrement())
   Descripcion  String    @db.Text
   Duracion     Int
   Recordatorio DateTime  @db.Date
   Estado       String    @db.VarChar(50)
   Fecha        DateTime  @db.Date
+  Hora         DateTime  @db.Time
   IdCliente    Int
   IdTerapeuta  Int
   cliente      cliente   @relation(fields: [IdCliente], references: [IdUsuario], onUpdate: Restrict, map: "cita_ibfk_1")
   terapeuta    terapeuta @relation(fields: [IdTerapeuta], references: [IdUsuario], onUpdate: Restrict, map: "cita_ibfk_2")
-
+  
   @@index([IdCliente], map: "IdCliente")
   @@index([IdTerapeuta], map: "IdTerapeuta")
 }
@@ -59,7 +60,7 @@ model cliente {
 }
 
 model membresia {
-  Id                 Int                  @id
+  Id                 Int                  @id @default(autoincrement())
   Nombre             String               @db.VarChar(100)
   Precio             Decimal              @db.Decimal(10, 2)
   membresiabeneficio membresiabeneficio[]
@@ -76,18 +77,19 @@ model membresiabeneficio {
 }
 
 model producto {
-  Id          Int       @id
+  Id          Int       @id @default(autoincrement())
   Nombre      String    @db.VarChar(100)
   Descripcion String    @db.Text
   Precio      Decimal   @db.Decimal(10, 2)
-  IdProveedor Int
-  proveedor   proveedor @relation(fields: [IdProveedor], references: [Id], onUpdate: Restrict, map: "producto_ibfk_1")
+  Tipo        String?   @db.VarChar(50)
+  IdProveedor Int?
+  proveedor   proveedor? @relation(fields: [IdProveedor], references: [Id], onUpdate: Restrict, map: "producto_ibfk_1")
 
   @@index([IdProveedor], map: "IdProveedor")
 }
 
 model proveedor {
-  Id              Int           @id
+  Id              Int           @id @default(autoincrement())
   Nombre          String        @db.VarChar(100)
   Direccion       String        @db.VarChar(200)
   Celular         String?       @db.VarChar(20)

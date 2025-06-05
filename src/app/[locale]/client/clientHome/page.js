@@ -4,15 +4,15 @@ import Link from "next/link";
 
 export default function home() {
     const t = useTranslations("clientHome");
-    const name = "John Doe"; // This would typically come from user data
+    const name = "John Doe"; 
 
     const quickAccess = [
         { title: t('bookAppointment'), link: "/client/bookAppointment", description: t('descriptionBookAppointment'), icon: "calendar_add_on"},
         { title: t('myAppointments'), link: "/client/myAppointments", description: t('descriptionMyAppointments'), icon: "calendar_month" },
         { title: t('myProfile'), link: "/client/myProfile", description: t('descriptionMyProfile'), icon: "person" },
         { title: t('ourServices'), link: "/services", description: t('descriptionOurServices'), icon: "spa" },
-        { title: t('memberships'), link: "#", description: t('descriptionMemberships'), icon: "star" },
-        { title: t('medicalConditions'), link: "#", description: t('descriptionMedicalConditions'), icon: "note_add" }
+        { title: t('memberships'), link: "/client/abonnements", description: t('descriptionMemberships'), icon: "star" },
+        { title: t('medicalConditions'), link: "/client/clientMedicalForm", description: t('descriptionMedicalConditions'), icon: "note_add" }
     ];
 
     const appointments = [
@@ -22,7 +22,7 @@ export default function home() {
     ];
 
     return (
-        <section className="relative flex flex-col items-center justify-center text-black/80 p-10 rounded-2xl mb-10 max-[375px]:p-0 bg-white w-[70%] mt-10 max-sm:p-5">
+        <section className="relative flex flex-col items-center justify-center text-black/80 p-10 rounded-2xl mb-10 max-[375px]:p-0 bg-white w-[70%] mt-10 max-sm:p-5 max-sm:w-[90%]">
             <h1 className="text-4xl font-bold flex items-center mb-3 text-center max-md:text-2xl">{t('welcome')}</h1>
             <p className="text-xs mb-10 max-sm:text-xs text-center max-md:text-[10px]">{t('description')}.</p>
             <h3 className="text-2xl font-bold inline-block text-start w-full mb-1 max-md:text-lg max-sm:text-center">{t('quickActions')}</h3>

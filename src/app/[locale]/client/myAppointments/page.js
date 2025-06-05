@@ -1,9 +1,15 @@
+"use client";
+import ModalCancel from "@/app/[locale]/components/general/ModalCancel";
+import { useState } from "react";
+
 export default function MyAppointmentsPage() {
     const appointments = [
         { day: "01", month: "MAY", year: "2023", startTime: "10:00 AM", endTime: "11:00 AM", service: "Massage", therapist: "John Doe", price: "$50" },
         { day: "08", month: "JUNE", year: "2023", startTime: "02:00 PM", endTime: "03:00 PM", service: "Facial Treatment", therapist: "Jane Smith", price: "$70" },
         { day: "20", month: "AUGUST", year: "2023", startTime: "01:00 PM", endTime: "02:00 PM", service: "Body Treatment", therapist: "Emily Johnson", price: "$60" },
     ];
+
+    const [showModal, setShowModal] = useState(false); 
 
 
     return (
@@ -48,11 +54,22 @@ export default function MyAppointmentsPage() {
                                         <span className="material-symbols-outlined icon-filled !text-lg text-center max-sm:!text-sm">edit_square</span>
                                         Modificar
                                         </button>
-                                    <button className="bg-red-500 text-white px-3 py-2 rounded hover:bg-red-600 transition-colors cursor-pointer flex text-center items-center gap-1 text-base max-sm:text-xs">
+                                    <button 
+                                    onClick={() => setShowModal(true)}
+                                    className="bg-red-500 text-white px-3 py-2 rounded hover:bg-red-600 transition-colors cursor-pointer flex text-center items-center gap-1 text-base max-sm:text-xs">
                                         <span className="material-symbols-outlined icon-filled !text-sm text-center max-sm:!text-sm bg-white !text-red-600 rounded-2xl px-1 py-[0.5px] flex items-center justify-center">close</span>
                                         Cancelar
-                                        </button>
+                                    </button>
                                 </div>
+                                {showModal && (
+                                    <ModalCancel 
+                                        onClose={() => setShowModal(false)} 
+                                        onConfirm={() => {
+                                            alert(`Cita para ${appointment.service} cancelada.`);
+                                            setShowModal(false);
+                                        }} 
+                                    />
+                                )}
                             </li>
                         ))}
                     </ul>

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useTranslations } from "use-intl";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import ChatFlotante from '../../chatbot/ChatFlotante/page';
 
 export default function SignUpMain() {
   const t = useTranslations('signup');
@@ -44,6 +45,7 @@ export default function SignUpMain() {
   }
 
   return (
+    <>
       <div className="w-full bg-[rgb(255,255,255,0.8)] z-30 flex flex-col items-center justify-center px-10 py-10 rounded-lg shadow-lg mx-auto">
         <h1 className="text-black text-2xl mb-2 font-bold text-center max-sm:text-xl">{t('title')}</h1>
         <p className="text-gray-500 text-xs mb-6 max-sm:text-[0.7rem]">{t('subtitle')}</p>
@@ -104,5 +106,7 @@ export default function SignUpMain() {
         </form>
         <p className="text-gray-700 mt-4 text-xs max-sm:text-[0.7rem]">{t('alreadyHave')} <Link href="/login" className="text-blue-500 hover:underline">{t('signIn')}</Link></p>
       </div>
+      <ChatFlotante />
+    </>
     );
 }

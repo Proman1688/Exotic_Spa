@@ -9,7 +9,8 @@ import {
   Pagination
 } from "@nextui-org/react";
 import { useAsyncList } from "@react-stately/data";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSession } from 'next-auth/react'; 
 
 export default function teamMembers() {
 
@@ -53,6 +54,63 @@ export default function teamMembers() {
 
     return colleagues.items.slice(start, end);
   }, [page, colleagues]);
+
+  const { data: session } = useSession();
+  const [formData, setFormData] = useState({
+    nombre: '',
+    correo: '',
+    telefono: '',
+    password: '',
+  });
+
+  useEffect(() => {
+    if (session?.user?.id) {
+      setFormData((prev) => ({ ...prev, idUsuario: session.user.id }));
+    }
+  }, [session]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    alert('Colaborador agregado');
+    setAddColleague(false);
+
+    const datosAEnviar = {
+      ...formData,
+      nombre: formData.nombre.trim(),
+      correo: formData.correo.trim(),
+      telefono: formData.telefono.trim(),
+      password: formData.password.trim()
+    };
+
+    console.log('📤 Enviando registro:', datosAEnviar);
+
+    // try {
+    //   const res = await fetch('/api/auth/registroUsuario', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(datosAEnviar)
+    //   });
+
+    //   const result = await res.json();
+
+    //   if (result.ok) {
+    //     alert('✅ Registro exitoso.');
+    //   } else {
+    //     alert('❌ Error en el registro: ' + result.error);
+    //   }
+    // } catch (err) {
+    //   console.error('Error en frontend:', err);
+    //   alert('❌ Error inesperado.');
+    // }
+  };
 
   return (
     <section className="relative flex flex-col items-center justify-center text-black/80 p-10 rounded-2xl mb-10 max-[375px]:p-0 bg-white w-[70%] mt-10 max-sm:p-5 max-sm:w-[90%]">
@@ -158,7 +216,6 @@ export default function teamMembers() {
             </TableBody>
           </Table>
         </div>
-
       </div>
 
       {addColleague && (
@@ -168,7 +225,7 @@ export default function teamMembers() {
               <span className="material-symbols-outlined icon-filled">close</span>
             </button>
             <h2 className="text-2xl font-bold mb-4 text-center">Agregar Colaborador</h2>
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="w-full flex gap-4 justify-between max-md:flex-col">
                 <div className="w-full">
                 <h1 className="text-base font-bold flex items-center mb-1 text-center max-md:text-2xl max-md:flex-col"><span className="material-symbols-outlined max-sm:!text-base icon-filled">account_circle</span>Datos Personales</h1>
@@ -177,25 +234,43 @@ export default function teamMembers() {
                 <label className="block text-xs font-medium text-gray-700 mb-1">Nombre Completo</label>
                 <input
                   type="text"
+                  name="nombre"
                   placeholder="Nombre Completo"
+                  value={formData.nombre}
+                  onChange={handleChange}
                   className="w-full p-2 text-xs border border-gray-300 rounded-md mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <label className="block text-xs font-medium text-gray-700 mb-1">Cargo / Rol</label>
+                {/* <label className="block text-xs font-medium text-gray-700 mb-1">Cargo / Rol</label>
                 <input
                   type="text"
                   placeholder="Correo Electronico"
                   className="w-full p-2 text-xs border border-gray-300 rounded-md mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
+                /> */}
                 <label className="block text-xs font-medium text-gray-700 mb-1">Correo Electronico</label>
                 <input
                   type="text"
-                  placeholder="Telefono"
+                  name="correo"
+                  placeholder="Correo Electrónico"
+                  value={formData.correo}
+                  onChange={handleChange}
                   className="w-full p-2 text-xs border border-gray-300 rounded-md mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-                <label className="block text-xs font-medium text-gray-700 mb-1">Telefono</label>
+                <label className="block text-xs font-medium text-gray-700 mb-1">Teléfono</label>
                 <input
                   type="text"
-                  placeholder="contraseña"
+                  name="telefono"
+                  placeholder="Teléfono"
+                  value={formData.telefono}
+                  onChange={handleChange}
+                  className="w-full p-2 text-xs border border-gray-300 rounded-md mb-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <label className="block text-xs font-medium text-gray-700 mb-1">Contraseña</label>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Contraseña"
+                  value={formData.password}
+                  onChange={handleChange}
                   className="w-full p-2 text-xs border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
@@ -223,10 +298,6 @@ export default function teamMembers() {
               <button
                 type="submit"
                 className="w-full bg-blue-500 text-white px-4 py-2 text-xs rounded-md hover:bg-blue-600 transition-colors flex items-center justify-center"
-                onClick={() => {
-                  alert('Colaborador agregado');
-                  setAddColleague(false);
-                }}
               >
                 <span className="material-symbols-outlined !text-xs mr-2 icon-filled">save</span>Guardar Colaborador
               </button>

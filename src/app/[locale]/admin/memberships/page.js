@@ -8,19 +8,18 @@ import {
   TableCell,
   Pagination
 } from "@nextui-org/react";
+import { useAsyncList } from "@react-stately/data";
 import { useState, useMemo } from "react";
 
 export default function membership() {
 
-const memberships = [
-    { name: "Plan Básico", rol: "$10/mes", email: "Mensual", phone: "Acceso a servicios básicos", state: "Activo" },
-    { name: "Plan Premium", rol: "$20/mes", email: "Mensual", phone: "Acceso a servicios premium", state: "Activo" },
-    { name: "Plan Gold", rol: "$30/mes", email: "Mensual", phone: "Acceso a todos los servicios", state: "Inactivo" },
-    { name: "Plan Familiar", rol: "$25/mes", email: "Mensual", phone: "Acceso a servicios familiares", state: "Activo" },
-    { name: "Plan Corporativo", rol: "$50/mes", email: "Mensual", phone: "Acceso a servicios corporativos", state: "Activo" },
-    { name: "Plan Estudiante", rol: "$15/mes", email: "Mensual", phone: "Descuentos para estudiantes", state: "Activo" },
-    { name: "Plan Senior", rol: "$12/mes", email: "Mensual", phone: "Descuentos para mayores de 60 años", state: "Inactivo" },
-]
+const memberships = useAsyncList({
+    async load({ signal }) {
+      const res = await fetch("/api/auth/memberships", { signal });
+      const json = await res.json();
+      return { items: json.results };
+    },
+  });
 
   const columns = [
     { name: "Nombre del plan", key: "name" },
@@ -34,13 +33,13 @@ const memberships = [
   const [page, setPage] = useState(1);
   const rowsPerPage = 4;
 
-  const pages = Math.ceil(memberships.length / rowsPerPage);
+  const pages = Math.ceil(memberships.items.length / rowsPerPage);
 
   const items = useMemo(() => {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    return memberships.slice(start, end);
+    return memberships.items.slice(start, end);
   }, [page, memberships]);
 
   return (

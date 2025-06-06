@@ -8,20 +8,18 @@ import {
   TableCell,
   Pagination
 } from "@nextui-org/react";
+import { useAsyncList } from "@react-stately/data";
 import { useState, useMemo } from "react";
 
 export default function servicesPrices() {
 
-const service = [
-    { name: "Facial Hidratante", category: "Faciales", time: 60, Price: "$50", state: "Activo" },
-    { name: "Masaje Relajante", category: "Masajes", time: 90, Price: "$70", state: "Activo" },
-    { name: "Depilación Cera", category: "Depilación", time: 30, Price: "$30", state: "Activo" },
-    { name: "Tratamiento Antiedad", category: "Tratamientos Especiales", time: 120, Price: "$100", state: "Activo" },
-    { name: "Facial Purificante", category: "Faciales", time: 60, Price: "$55", state: "Activo" },
-    { name: "Masaje Aromaterapia", category: "Masajes", time: 90, Price: "$75", state: "Activo" },
-    { name: "Depilación Laser", category: "Depilación", time: 45, Price: "$80", state: "Activo" },
-    { name: "Tratamiento Rejuvenecedor", category: "Tratamientos Especiales", time: 150, Price: "$120", state: "Activo" }
-];  
+  const services = useAsyncList({
+    async load({ signal }) {
+      const res = await fetch("/api/auth/servicea", { signal });
+      const json = await res.json();
+      return { items: json.results };
+    },
+  });  
 
   const columns = [
     { name: "Nombre del servicio", key: "name" },
@@ -35,18 +33,18 @@ const service = [
   const [page, setPage] = useState(1);
   const rowsPerPage = 4;
 
-  const pages = Math.ceil(service.length / rowsPerPage);
+  const pages = Math.ceil(services.items.length / rowsPerPage);
 
   const items = useMemo(() => {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    return service.slice(start, end);
-  }, [page, service]);
+    return services.items.slice(start, end);
+  }, [page, services]);
 
   return (
     <section className="relative flex flex-col items-center justify-center text-black/80 p-10 rounded-2xl mb-10 max-[375px]:p-0 bg-white w-[70%] mt-10 max-sm:p-5 max-sm:w-[90%]">
-            <h1 className="text-4xl font-bold flex items-center mb-3 text-center max-md:text-2xl max-md:flex-col"><span className="material-symbols-outlined !text-5xl mr-2 max-sm:!text-3xl icon-filled">groups</span>Gestion de Servicios y Perico</h1>
+            <h1 className="text-4xl font-bold flex items-center mb-3 text-center max-md:text-2xl max-md:flex-col"><span className="material-symbols-outlined !text-5xl mr-2 max-sm:!text-3xl icon-filled">groups</span>Gestion de Servicios y Precio</h1>
             <p className="text-xs mb-10 max-sm:text-xs text-center max-md:text-[10px]">Define y actualiza el catálogo de tratamientos, servicios y sus respectivas tarifas</p>
             <div className="border border-gray-100 p-5 shadow-lg rounded w-full mb-10 flex">
               <input

@@ -8,32 +8,36 @@ import {
   TableCell,
   Pagination
 } from "@nextui-org/react";
+import { useAsyncList } from "@react-stately/data";
 import { useState, useMemo } from "react";
 
 export default function ClientsServed() {
 
-  const clients = [
-    { name: "John Doe", date: "2023-05-01", appointment: 5, actions: "Ver Cliente" },
-    { name: "Jane Smith", date: "2023-06-08", appointment: 8, actions: "Ver Cliente" },
-    { name: "Emily Johnson", date: "2023-08-20", appointment: 1, actions: "Ver Cliente" },
-    { name: "Michael Brown", date: "2023-09-15", appointment: 3, actions: "Ver Cliente" },
-    { name: "Sarah Davis", date: "2023-10-22", appointment: 2, actions: "Ver Cliente" },
-    { name: "David Wilson", date: "2023-11-30", appointment: 4, actions: "Ver Cliente" },
-    { name: "Laura Garcia", date: "2023-12-05", appointment: 6, actions: "Ver Cliente" },
-    { name: "James Martinez", date: "2023-12-10", appointment: 7, actions: "Ver Cliente" },
-    { name: "Patricia Rodriguez", date: "2023-12-15", appointment: 9, actions: "Ver Cliente" },
-    { name: "Robert Lopez", date: "2023-12-20", appointment: 10, actions: "Ver Cliente" },
-    { name: "Linda Gonzalez", date: "2023-12-25", appointment: 11, actions: "Ver Cliente" },
-    { name: "William Perez", date: "2023-12-30", appointment: 12, actions: "Ver Cliente" },
-    { name: "Elizabeth Sanchez", date: "2024-01-05", appointment: 13, actions: "Ver Cliente" },
-    { name: "Christopher Ramirez", date: "2024-01-10", appointment: 14, actions: "Ver Cliente" },
-    { name: "Jessica Torres", date: "2024-01-15", appointment: 15, actions: "Ver Cliente" },
-    { name: "Daniel Rivera", date: "2024-01-20", appointment: 16, actions: "Ver Cliente" },
-    { name: "Susan Morales", date: "2024-01-25", appointment: 17, actions: "Ver Cliente" },
-    { name: "Matthew Reed", date: "2024-02-01", appointment: 18, actions: "Ver Cliente" },
-    { name: "Karen Cook", date: "2024-02-05", appointment: 19, actions: "Ver Cliente" },
-    { name: "Anthony Bell", date: "2024-02-10", appointment: 20, actions: "Ver Cliente" }
-  ];
+  const clients = useAsyncList({
+    async load({ signal }) {
+      const res = await fetch("/api/auth/clients", { signal });
+      const json = await res.json();
+
+      return {
+        items: json.results,
+      };
+    },
+    async sort({ items, sortDescriptor }) {
+      return {
+        items: [...items].sort((a, b) => {
+          let first = a[sortDescriptor.column];
+          let second = b[sortDescriptor.column];
+          let cmp = (parseInt(first) || first) < (parseInt(second) || second) ? -1 : 1;
+
+          if (sortDescriptor.direction === "descending") {
+            cmp *= -1;
+          }
+
+          return cmp;
+        }),
+      };
+    },
+  });
 
   const columns = [
     { name: "Cliente", key: "name" },
@@ -45,13 +49,13 @@ export default function ClientsServed() {
   const [page, setPage] = useState(1);
   const rowsPerPage = 4;
 
-  const pages = Math.ceil(clients.length / rowsPerPage);
+  const pages = Math.ceil(clients.items.length / rowsPerPage);
 
   const items = useMemo(() => {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    return clients.slice(start, end);
+    return clients.items.slice(start, end);
   }, [page, clients]);
 
   return (

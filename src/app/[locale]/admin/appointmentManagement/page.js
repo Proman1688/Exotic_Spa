@@ -8,6 +8,7 @@ import {
   TableCell,
   Pagination
 } from "@nextui-org/react";
+import { useAsyncList } from "@react-stately/data";
 import { useState, useMemo } from "react";
 import CalendarioDetalle from "../../components/general/Calendar";
 export default function appointmentManagement() {
@@ -21,27 +22,37 @@ export default function appointmentManagement() {
     { name: "Acciones", key: "actions" }
   ];  
 
-  const rows = [
-    { date: "09:00", client: "Elena V.", service: "Masaje", collaborator: "Carlos R.", state: "Confirmada", actions: "Ver Detalles" },
-    { date: "10:30", client: "Carlos R.", service: "Facial", collaborator: "Laura M.", state: "Pendiente", actions: "Ver Detalles" },
-    { date: "14:00", client: "Laura M.", service: "Manicura", collaborator: "Ana G.", state: "Cancelada", actions: "Ver Detalles" },
-    { date: "15:00", client: "Ana G.", service: "Depilación", collaborator: "Elena V.", state: "Confirmada", actions: "Ver Detalles" },
-    { date: "16:00", client: "Juan P.", service: "Pedicura", collaborator: "Carlos R.", state: "Confirmada", actions: "Ver Detalles" },
-    { date: "17:30", client: "Maria S.", service: "Masaje", collaborator: "Laura M.", state: "Pendiente", actions: "Ver Detalles" },
-    { date: "18:00", client: "Pedro L.", service: "Facial", collaborator: "Ana G.", state: "Confirmada", actions: "Ver Detalles" },
-  ]
+  const appointments = useAsyncList({
+    async load({ signal }) {
+      const res = await fetch("/api/auth/appointments", { signal });
+      const json = await res.json();
+      return { items: json.results };
+    },
+    async sort({ items, sortDescriptor }) {
+      return {
+        items: [...items].sort((a, b) => {
+          let first = a[sortDescriptor.column];
+          let second = b[sortDescriptor.column];
+          let cmp = (parseInt(first) || first) < (parseInt(second) || second) ? -1 : 1;
+
+          if (sortDescriptor.direction === "descending") cmp *= -1;
+          return cmp;
+        }),
+      };
+    },
+  });
 
   const [page, setPage] = useState(1);
     const rowsPerPage = 4;
   
-    const pages = Math.ceil(rows.length / rowsPerPage);
+    const pages = Math.ceil(appointments.items.length / rowsPerPage);
   
     const items = useMemo(() => {
       const start = (page - 1) * rowsPerPage;
       const end = start + rowsPerPage;
   
-      return rows.slice(start, end);
-    }, [page, rows]);
+      return appointments.items.slice(start, end);
+    }, [page, appointments]);
 
   const eventos = [
     {

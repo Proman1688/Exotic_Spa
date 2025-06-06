@@ -8,22 +8,29 @@ import {
   TableCell,
   Pagination
 } from "@nextui-org/react";
+import { useAsyncList } from "@react-stately/data";
 import { useState, useMemo } from "react";
 
 export default function teamMembers() {
 
-const colleagues = [
-    { name: "Juan Perez", rol: "Gerente", email: "juanp@gmail.com", phone: "1234567890", state: "Activo" },
-    { name: "Maria Gomez", rol: "Recepcionista", email: "mariag@gmail.com", phone: "0987654321", state: "Activo" },
-    { name: "Carlos Ruiz", rol: "Terapeuta", email: "carlosr@gmail.com", phone: "1122334455", state: "Inactivo" },
-    { name: "Ana Torres", rol: "Gerente", email: "anatorres@gmail.com", phone: "2233445566", state: "Activo" },
-    { name: "Luis Fernandez", rol: "Recepcionista", email: "luisf@gmail.com", phone: "3344556677", state: "Activo" },
-    { name: "Sofia Martinez", rol: "Terapeuta", email: "sofiam@gmail.com", phone: "4455667788", state: "Activo" },
-    { name: "Pedro Sanchez", rol: "Gerente", email: "pedros@gmail.com", phone: "5566778899", state: "Inactivo" },
-    { name: "Lucia Castro", rol: "Recepcionista", email: "luciac@gmail.com", phone: "6677889900", state: "Activo" },
-    { name: "Miguel Lopez", rol: "Terapeuta", email: "miguell@gmail.com", phone: "7788990011", state: "Activo" },
-    { name: "Valeria Diaz", rol: "Recepcionista", email: "valeriad@gmail.com", phone: "8899001122", state: "Inactivo" }
-];
+  const colleagues = useAsyncList({
+    async load({ signal }) {
+      const res = await fetch("/api/auth/colaborador", { signal });
+      const json = await res.json();
+      return { items: json.results };
+    },
+    async sort({ items, sortDescriptor }) {
+      return {
+        items: [...items].sort((a, b) => {
+          let first = a[sortDescriptor.column];
+          let second = b[sortDescriptor.column];
+          let cmp = (parseInt(first) || first) < (parseInt(second) || second) ? -1 : 1;
+          if (sortDescriptor.direction === "descending") cmp *= -1;
+          return cmp;
+        }),
+      };
+    },
+  });
 
   const columns = [
     { name: "Nombre Completo", key: "name" },
@@ -38,13 +45,13 @@ const colleagues = [
   const [page, setPage] = useState(1);
   const rowsPerPage = 4;
 
-  const pages = Math.ceil(colleagues.length / rowsPerPage);
+  const pages = Math.ceil(colleagues.items.length / rowsPerPage);
 
   const items = useMemo(() => {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    return colleagues.slice(start, end);
+    return colleagues.items.slice(start, end);
   }, [page, colleagues]);
 
   return (

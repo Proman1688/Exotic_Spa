@@ -8,18 +8,29 @@ import {
   TableCell,
   Pagination
 } from "@nextui-org/react";
+import { useAsyncList } from "@react-stately/data";
 import { useState, useMemo } from "react";
 
 export default function inventoryPage() {
 
-const products = [
-    { name: "Facial Hidratante", sku: "F001", category: "Faciales", proveedor: "Proveedor A", stock: 50, price: 20, sel: 30, min: 10 },
-    { name: "Masaje Relajante", sku: "M001", category: "Masajes", proveedor: "Proveedor B", stock: 30, price: 25, sel: 40, min: 5 },
-    { name: "Depilación Cera", sku: "D001", category: "Depilación", proveedor: "Proveedor C", stock: 20, price: 15, sel: 25, min: 3 },
-    { name: "Tratamiento Corporal", sku: "T001", category: "Corporales", proveedor: "Proveedor D", stock: 15, price: 30, sel: 50, min: 2 },
-    { name: "Facial Anti-edad", sku: "F002", category: "Faciales", proveedor: "Proveedor A", stock: 40, price: 22, sel: 35, min: 8 },
-    { name: "Masaje Aromaterapia", sku: "M002", category: "Masajes", proveedor: "Proveedor B", stock: 25, price: 28, sel: 45, min: 4 }
-]; 
+  const products = useAsyncList({
+    async load({ signal }) {
+      const res = await fetch("/api/auth/products", { signal });
+      const json = await res.json();
+      return { items: json.results };
+    },
+    async sort({ items, sortDescriptor }) {
+      return {
+        items: [...items].sort((a, b) => {
+          let first = a[sortDescriptor.column];
+          let second = b[sortDescriptor.column];
+          let cmp = (parseInt(first) || first) < (parseInt(second) || second) ? -1 : 1;
+          if (sortDescriptor.direction === "descending") cmp *= -1;
+          return cmp;
+        }),
+      };
+    },
+  }); 
 
   const columnsProducts = [
     { key: "name", name: "Nombre del Producto" },
@@ -33,18 +44,13 @@ const products = [
     { key: "actions", name: "Acciones" }
   ];
 
-const providers = [
-    { name: "Proveedor A", contact: "Juan Perez", phone: "123456789", email: "proveedorA@gmail.com", products: "Faciales, Corporales" },
-    { name: "Proveedor B", contact: "Maria Gomez", phone: "987654321", email: "proveedorB@gmail.com", products: "Masajes, Aromaterapia" },
-    { name: "Proveedor C", contact: "Carlos Ruiz", phone: "555123456", email: "proveedorC@gmail.com", products: "Depilación, Faciales" },
-    { name: "Proveedor D", contact: "Ana Torres", phone: "444987654", email: "proveedorD@gmail.com", products: "Corporales, Tratamientos Especiales" },
-    { name: "Proveedor E", contact: "Luis Martínez", phone: "321654987", email: "proveedorE@gmail.com", products: "Masajes, Corporales" },
-    { name: "Proveedor F", contact: "Sofía López", phone: "789456123", email: "proveedorF@gmail.com", products: "Faciales, Depilación" },
-    { name: "Proveedor G", contact: "Pedro Sánchez", phone: "654321987", email: "proveedorG@gmail.com", products: "Tratamientos Especiales, Masajes" },
-    { name: "Proveedor H", contact: "Lucía Fernández", phone: "123789456", email: "proveedorH@gmail.com", products: "Corporales, Faciales" },
-    { name: "Proveedor I", contact: "Miguel Castro", phone: "987123654", email: "proveedorI@gmail.com", products: "Depilación, Masajes" },
-    { name: "Proveedor J", contact: "Elena Ramírez", phone: "456789123", email: "proveedorJ@gmail.com", products: "Faciales, Tratamientos Especiales" }
-];
+  const providers = useAsyncList({
+    async load({ signal }) {
+      const res = await fetch("/api/auth/providers", { signal });
+      const json = await res.json();
+      return { items: json.results };
+    },
+  });
 
   const columnsProviders = [
     { key: "name", name: "Nombre del proveedor" },
@@ -60,22 +66,22 @@ const providers = [
   const rowsPerPage = 4;
   const [buttonsPerPage, setButtonsPerPage] = useState(0);
 
-  const pages = Math.ceil(products.length / rowsPerPage);
+  const pages = Math.ceil(products.items.length / rowsPerPage);
 
   const items = useMemo(() => {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    return products.slice(start, end);
+    return products.items.slice(start, end);
   }, [page, products]);
 
-  const pages2 = Math.ceil(providers.length / rowsPerPage);
+  const pages2 = Math.ceil(providers.items.length / rowsPerPage);
 
   const items2 = useMemo(() => {
     const start = (page2 - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    return providers.slice(start, end);
+    return providers.items.slice(start, end);
   }, [page2, providers]);
   // box 
   return (

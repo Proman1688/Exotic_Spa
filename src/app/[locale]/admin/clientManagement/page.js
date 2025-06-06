@@ -8,19 +8,30 @@ import {
   TableCell,
   Pagination
 } from "@nextui-org/react";
+import { useAsyncList } from "@react-stately/data";
 import { useState, useMemo } from "react";
 
 export default function clientManagement() {
 
-const clients = [
-    { name: "Juan Perez", email: "juanPerez@gmail.com", phone: "1234567890", date: "2023-05-01", appointment: 5, membership: "Premium" },
-    { name: "Maria Lopez", email: "mariaLopez@gmail.com", phone: "0987654321", date: "2023-06-08", appointment: 8, membership: "Basic" },
-    { name: "Carlos Sánchez", email: "carlosSanchez@gmail.com", phone: "1122334455", date: "2023-07-15", appointment: 3, membership: "Gold" },
-    { name: "Ana Torres", email: "anaTorres@gmail.com", phone: "2233445566", date: "2023-08-20", appointment: 6, membership: "Premium" },
-    { name: "Luis Gómez", email: "luisGomez@gmail.com", phone: "3344556677", date: "2023-09-10", appointment: 2, membership: "Basic" },
-    { name: "Sofía Martínez", email: "sofiaMartinez@gmail.com", phone: "4455667788", date: "2023-10-05", appointment: 7, membership: "Gold" },
-    { name: "Pedro Ramírez", email: "pedroRamirez@gmail.com", phone: "5566778899", date: "2023-11-12", appointment: 4, membership: "Premium" }
-];
+  const clients = useAsyncList({
+    async load({ signal }) {
+      const res = await fetch("/api/auth/clients", { signal });
+      const json = await res.json();
+      return { items: json.results };
+    },
+    async sort({ items, sortDescriptor }) {
+      return {
+        items: [...items].sort((a, b) => {
+          let first = a[sortDescriptor.column];
+          let second = b[sortDescriptor.column];
+          let cmp = (parseInt(first) || first) < (parseInt(second) || second) ? -1 : 1;
+
+          if (sortDescriptor.direction === "descending") cmp *= -1;
+          return cmp;
+        }),
+      };
+    },
+  });
 
   const columns = [
     { name: "Nombre Completo", key: "name" },
@@ -35,13 +46,13 @@ const clients = [
   const [page, setPage] = useState(1);
   const rowsPerPage = 4;
 
-  const pages = Math.ceil(clients.length / rowsPerPage);
+  const pages = Math.ceil(clients.items.length / rowsPerPage);
 
   const items = useMemo(() => {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    return clients.slice(start, end);
+    return clients.items.slice(start, end);
   }, [page, clients]);
 
   return (

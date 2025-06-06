@@ -15,12 +15,12 @@ export const authOptions = {
           if (!credentials?.email || !credentials?.password) return null;
 
           const user = await prisma.usuario.findFirst({
-          where: { Email: credentials.email },
-          include: {
-            administrador: true,
-            terapeuta: true,
-          },
-        });
+            where: { Email: credentials.email },
+            include: {
+              administrador: true,
+              terapeuta: true,
+            },
+          });
 
         if (!user) return null;
 
@@ -65,6 +65,9 @@ export const authOptions = {
     },
     async session({ session, token }) {
       if (token) {
+        if (!session.user) {
+          session.user = {};
+        }
         session.user.id = token.id;
         session.user.role = token.role;
       }

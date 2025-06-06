@@ -35,12 +35,12 @@ model cita {
   Recordatorio DateTime  @db.Date
   Estado       String    @db.VarChar(50)
   Fecha        DateTime  @db.Date
-  Hora         DateTime  @db.Time
   IdCliente    Int
   IdTerapeuta  Int
+  Hora         DateTime  @db.Time(0)
   cliente      cliente   @relation(fields: [IdCliente], references: [IdUsuario], onUpdate: Restrict, map: "cita_ibfk_1")
   terapeuta    terapeuta @relation(fields: [IdTerapeuta], references: [IdUsuario], onUpdate: Restrict, map: "cita_ibfk_2")
-  
+
   @@index([IdCliente], map: "IdCliente")
   @@index([IdTerapeuta], map: "IdTerapeuta")
 }
@@ -77,12 +77,12 @@ model membresiabeneficio {
 }
 
 model producto {
-  Id          Int       @id @default(autoincrement())
-  Nombre      String    @db.VarChar(100)
-  Descripcion String    @db.Text
-  Precio      Decimal   @db.Decimal(10, 2)
-  Tipo        String?   @db.VarChar(50)
+  Id          Int        @id @default(autoincrement())
+  Nombre      String     @db.VarChar(100)
+  Descripcion String     @db.Text
+  Precio      Decimal    @db.Decimal(10, 2)
   IdProveedor Int?
+  Tipo        String?    @db.VarChar(50)
   proveedor   proveedor? @relation(fields: [IdProveedor], references: [Id], onUpdate: Restrict, map: "producto_ibfk_1")
 
   @@index([IdProveedor], map: "IdProveedor")

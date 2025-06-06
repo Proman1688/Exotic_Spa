@@ -46,7 +46,7 @@ export default function inventoryPage() {
 
   const providers = useAsyncList({
     async load({ signal }) {
-      const res = await fetch("/api/auth/providers", { signal });
+      const res = await fetch("/api/auth/proveedora", { signal });
       const json = await res.json();
       return { items: json.results };
     },

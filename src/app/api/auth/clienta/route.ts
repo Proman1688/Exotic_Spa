@@ -12,5 +12,5 @@ export async function GET() {
     { name: "Pedro Ramírez", email: "pedroRamirez@gmail.com", phone: "5566778899", date: "2023-11-12", appointment: 4, membership: "Premium" }
   ];
 
-  return NextResponse.json({ results: clients });
+  return NextResponse.json({ results: clients });
 }

@@ -14,5 +14,5 @@ export async function GET() {
     { name: "Proveedor J", contact: "Elena Ramírez", phone: "456789123", email: "proveedorJ@gmail.com", products: "Faciales, Tratamientos Especiales" }
   ];
 
-  return NextResponse.json({ results: providers });
+  return NextResponse.json({ results: providers });
 }

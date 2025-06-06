@@ -15,7 +15,7 @@ export default function clientManagement() {
 
   const clients = useAsyncList({
     async load({ signal }) {
-      const res = await fetch("/api/auth/clients", { signal });
+      const res = await fetch("/api/auth/clienta", { signal });
       const json = await res.json();
       return { items: json.results };
     },

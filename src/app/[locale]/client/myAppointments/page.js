@@ -17,9 +17,6 @@ export default function MyAppointmentsPage() {
             fetch(`/api/auth/citas-cliente?idUsuario=${session.user.id}`)
                 .then(res => res.json())
                 .then(data => setAppointments(data.citas || []));
-        }else {
-            setAppointments([]);
-            console.error("No session found or user ID is missing.");
         }
     }, [session]);
 
@@ -44,7 +41,6 @@ export default function MyAppointmentsPage() {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({ 
                 idCita: idAppointment,
-                idUsuario: session.user.id // ID del cliente (usuario autenticado)
             }) 
         });
         console.log('Cita cancelada');

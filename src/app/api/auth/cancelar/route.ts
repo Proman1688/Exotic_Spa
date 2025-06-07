@@ -5,24 +5,22 @@ import { prisma } from '@/lib/prisma';
 export async function PATCH(request: Request) {
   try {
     const body = await request.json();
-    const { idCita, idUsuario } = body;
+    const { idCita } = body;
 
-    if (!idCita || !idUsuario) {
+    if (!idCita) {
       return NextResponse.json({ error: 'Faltan datos requeridos' }, { status: 400 });
     }
 
-    // Verifica que la cita pertenece al usuario
     const cita = await prisma.cita.findUnique({
       where: { Id: idCita },
-      select: { IdCliente: true, Estado: true }
+      select: {
+        Id: true,
+        Estado: true
+      }
     });
 
     if (!cita) {
       return NextResponse.json({ error: 'Cita no encontrada' }, { status: 404 });
-    }
-
-    if (cita.IdCliente !== idUsuario) {
-      return NextResponse.json({ error: 'No autorizado para cancelar esta cita' }, { status: 403 });
     }
 
     if (cita.Estado === 'Cancelada por cliente') {

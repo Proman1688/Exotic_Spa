@@ -4,13 +4,20 @@ import ModalCancel from "../../components/modals/ModalCancel";
 import ModalFeatureUnavailable from "../../components/modals/ModalFeatureUnavailable";
 import { useState } from "react";
 import Link from "next/link";
+import { useEffect } from "react";
+import { useSession } from "next-auth/react";
+
 
 export default function home() {
     const t = useTranslations("clientHome");
     const [showModalCancel, setShowModalCancel] = useState(false);
     const [showModalFeatureUnavailable, setShowModalFeatureUnavailable] = useState(false);
-    const [selectedAppointmentIndex, setSelectedAppointmentIndex] = useState(null);
     const name = "John Doe"; // This would typically come from user data
+    const { data: session } = useSession();
+    const [appointments, setAppointments] = useState([]);
+    const [idAppointment, setIdAppointment] = useState(null);
+    
+
 
     const quickAccess = [
         { title: "Ver calendario Completo", link: "/collaborator/completeSchedule", description: "Consulta tu agenda semanal o mensual", icon: "calendar_month"},
@@ -18,41 +25,58 @@ export default function home() {
         { title: "Mi perfil", link: "/collaborator/myProfile", description: "Consulta tu perfil", icon: "person" },
     ];
 
-    const appointments = [
-        {
-            descripcion: "Masaje terapéutico para aliviar tensiones musculares",
-            nombreServicio: "Masaje",
-            duracion: "1",
-            recordatorio: "1 hora antes",
-            estado: "Programada",
-            fecha: "2025-06-10 09:00:00",
-            nombreCliente: "Ana Torres",
-            nombreTerapista: "Laura García",
-            precio: "$55"
-        },
-        {
-            descripcion: "Tratamiento facial hidratante profundo",
-            nombreServicio: "Tratamiento Facial",
-            duracion: "0.45",
-            recordatorio: "30 minutos antes",
-            estado: "Programada",
-            fecha: "2025-06-01 15:30:00",
-            nombreCliente: "Carlos Mendoza",
-            nombreTerapista: "Jane Smith",
-            precio: "$65"
-        },
-        {
-            descripcion: "Sesión de exfoliación corporal completa",
-            nombreServicio: "Tratamiento Corporal",
-            duracion: "1.15",
-            recordatorio: "1 día antes",
-            estado: "Programada",
-            fecha: "2025-05-28 11:00:00",
-            nombreCliente: "Verónica López",
-            nombreTerapista: "Emily Johnson",
-            precio: "$70"
+    const cancelarCita = async () => {
+        await fetch('/api/auth/cancelar', {
+            method: 'PATCH',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ 
+                idCita: idAppointment,
+            }) 
+        });
+        console.log('Cita cancelada');
+    }
+
+    useEffect(() => {
+        if (session?.user?.id) {
+            fetch(`/api/auth/por-terapeuta?idUsuario=${session.user.id}`)
+                .then(res => res.json())
+                .then(data => setAppointments(data.citas || []));
         }
-    ];
+    }, [session]);
+
+    const esHoy = (fechaStr) => {
+        const hoy = new Date();
+        const fecha = new Date(fechaStr);
+        console.log("Fecha:", fecha, "\n", "Hoy:", hoy);
+
+        return (
+            hoy.getUTCMonth() === fecha.getUTCMonth()
+        );
+    };
+
+    const calcularHoraFin = (horaStr, duracionMinutos) => {
+        const [horas, minutos, segundos] = horaStr.split(':').map(Number);
+
+        const fecha = new Date();
+        fecha.setHours(horas, minutos, segundos || 0, 0); // hora base
+
+        const duracionMs = duracionMinutos * 60 * 1000; // minutos a milisegundos
+        const fechaFin = new Date(fecha.getTime() + duracionMs);
+
+        return fechaFin.toLocaleTimeString("es-ES", {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false
+        });
+    };
+
+
+
+
+
+    const today = new Date();
+    const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    const month = monthNames[today.getMonth()];
 
     return (
         <section className="relative flex flex-col items-center justify-center text-black/80 p-10 rounded-2xl mb-10 max-[375px]:p-0 bg-white w-[70%] mt-10 max-sm:p-5 max-sm:w-[90%]">
@@ -63,51 +87,40 @@ export default function home() {
             {/* Citas Para hoy */}
             {/* ////////////////////// */}
             <div className="border border-gray-100 p-5 shadow-lg rounded w-full mb-10">
-                <h3 className="text-2xl font-bold inline-flex items-center text-start w-full mb-1 max-md:text-lg max-sm:text-center max-md:flex-col"><span className="material-symbols-outlined !text-4xl mr-2 max-sm:!text-3xl icon-filled">today</span>Citas para Hoy - Martes, 13 de Mayo, 2025</h3>
+                <h3 className="text-2xl font-bold inline-flex items-center text-start w-full mb-1 max-md:text-lg max-sm:text-center max-md:flex-col"><span className="material-symbols-outlined !text-4xl mr-2 max-sm:!text-3xl icon-filled">today</span>Citas para este mes - {month}</h3>
                 <div className="w-full h-[0.5px] bg-black/40 mb-3"></div>
                 <div className="w-full mt-5 mb-10">
                     { appointments.length > 0 ? (
                         <ul className="list-disc pl-5 w-full">
                             {appointments.map((appointment, index) => (
-                                <li key={index} className="mb-2 bg-gray-100 text-black p-3 rounded-lg flex items-center justify-between border-l-4 border-l-blue-500 hover:bg-blue-50 transition-colors shadow-xl max-sm:flex-col max-sm:gap-2">
+                                appointment.Estado === "Pendiente" &&(
+                                esHoy(appointment.Fecha) && (
+                                    <li key={index} className="mb-2 bg-gray-100 text-black p-3 rounded-lg flex items-center justify-between border-l-4 border-l-blue-500 hover:bg-blue-50 transition-colors shadow-xl max-sm:flex-col max-sm:gap-2">
                                     {/* Hora Inicio y Final */}
                                     <div
                                         key={index}
                                         className="flex flex-col items-center mr-4 bg-blue-500 text-white p-2 rounded-lg w-16"
                                     >
-                                        {(() => {
-                                        const start = new Date(appointment.fecha);
-                                        const duracion = parseFloat(appointment.duracion);
-                                        const end = new Date(start.getTime() + duracion * 60 * 60 * 1000);
-
-                                        const format = (date) =>
-                                            date.toLocaleTimeString("es-ES", {
-                                            hour: "2-digit",
-                                            minute: "2-digit",
-                                            hour12: false,
-                                            });
-
-                                        return (
-                                            <>
-                                            <p className="font-semibold text-[10px]">{format(start)}</p>
+                                        <p className="font-semibold text-[10px]">{appointment.Hora}</p>
                                             <p className="font-semibold text-[10px]">-</p>
-                                            <p className="font-semibold text-[10px]">{format(end)}</p>
-                                            </>
-                                        );
-                                        })()}
+                                            <p className="font-semibold text-[10px]">{calcularHoraFin(appointment.Hora, appointment.Duracion)}</p>
                                     </div>
                                     
                                     {/* Detalles de la cita */}
                                     <div className="flex-1 flex flex-col items-start gap-1">
-                                        <p className="text-lg font-bold max-sm:text-center">{appointment.nombreServicio}</p>
-                                        <p className="text-xs flex items-center gap-1 max-sm:w-full max-sm:justify-center max-sm:text-center"> Cliente: {appointment.nombreCliente}</p>
-                                        <p className="text-xs flex items-center gap-1 max-sm:w-full max-sm:justify-center max-sm:text-center">Notas: {appointment.descripcion}</p>
+                                        <p className="text-lg font-bold max-sm:text-center">{appointment.Descripcion}</p>
+                                        <p className="text-xs flex items-center gap-1 max-sm:w-full max-sm:justify-center max-sm:text-center"> Cliente: {appointment.NombreCliente}</p>
+                                        <p className="text-xs flex items-center gap-1 max-sm:w-full max-sm:justify-center max-sm:text-center"> Fecha: {new Date(appointment.Fecha).toLocaleDateString("es-ES", {
+                                            day: "2-digit",
+                                            month: "2-digit",
+                                            year: "numeric"
+                                        })}</p>
                                     </div>
                                     <div className="flex flex-col gap-2">
                                         <button
                                             onClick={() => {
                                                 setShowModalCancel(true);
-                                                setSelectedAppointmentIndex(index);
+                                                setIdAppointment(appointment.IdCita);
                                             }}
                                             className="bg-gray-200 px-3 py-1 rounded hover:bg-gray-300 transition-colors cursor-pointer flex items-center text-sm">
                                             <span className="material-symbols-outlined !text-lg mr-2 icon-filled">close</span>
@@ -121,6 +134,7 @@ export default function home() {
                                             Añadir Notas</button>
                                     </div>
                                 </li>
+                                ))
                             ))}
                         </ul>
                     ) : (
@@ -153,8 +167,10 @@ export default function home() {
                 <ModalCancel 
                     onClose={() => setShowModalCancel(false)} 
                     onConfirm={() => {
-                        alert(`Cita para ${appointments[selectedAppointmentIndex].nombreServicio} cancelada.`);
+                        alert(`Cita cancelada.`);
                         setShowModalCancel(false);
+                        cancelarCita();
+                        window.location.reload();
                     }} 
                 />
             )}

@@ -36,7 +36,7 @@ export async function POST(req: Request) {
         Duracion: 60,
         Estado: 'Pendiente',
         Fecha: fechaCompleta,
-        Hora: fechaCompleta, // Usamos la misma fechaCompleta para la columna Hora (solo se usará la parte de la hora)
+        Hora: new Date(`1970-01-01T${data.hora}:00Z`) , // Usamos la misma fechaCompleta para la columna Hora (solo se usará la parte de la hora)
         Recordatorio: recordatorio,
         cliente: { connect: { IdUsuario: data.idCliente } },
         terapeuta: { connect: { IdUsuario: idTerapeuta } }
@@ -63,6 +63,7 @@ export async function GET(req: Request) {
       where: { IdCliente: idCliente },
       orderBy: { Fecha: 'asc' },
       include: {
+        
         terapeuta: {
           include: {
             usuario: {
@@ -77,9 +78,7 @@ export async function GET(req: Request) {
     const citasFormateadas = citas.map(cita => ({
         id: cita.Id,
         fecha: cita.Fecha,
-        horaInicio: cita.Hora
-            ? new Date(cita.Hora).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-            : '',
+        horaInicio: cita.Hora.toISOString().substring(11, 16), 
         servicio: cita.Descripcion,
         terapeuta: cita.terapeuta?.usuario?.Nombre || 'Sin asignar'
     }));

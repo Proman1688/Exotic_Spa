@@ -81,6 +81,7 @@ export default function BookAppointmentPage() {
 
             if (result.ok) {
                 alert('✅ Cita agendada con éxito.');
+                window.location.reload(); 
             } else {
                 alert('❌ Error al agendar cita: ' + result.error);
             }
